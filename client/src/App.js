@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import Nav from './components/Nav';
+import DrinkCard from './components/DrinkCard';
 import './App.css';
 
 function App() {
