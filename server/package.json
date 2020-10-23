@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "apollo-server-express": "^2.18.2",
     "bcrypt": "^5.0.0",
@@ -11,9 +11,13 @@
     "mongoose": "^5.10.9",
     "stripe": "^8.115.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "watch": "nodemon",
+    "seed": "node config/seeds.js"
   },
   "keywords": [],
   "author": "",
