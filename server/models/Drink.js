@@ -23,6 +23,22 @@ const drinkSchema = new Schema({
     type: Number,
     min: 0,
     default: 0
+  },
+  size: {
+    type: String,
+    default: "Small", 
+    required: true
+  },
+  iced: {
+    type: String,
+    default: "No"
+  },
+  milk: {
+    type: String,
+    default: "No Milk"
+  },
+  specialInstructions: {
+    type: String
   }
 });
 
