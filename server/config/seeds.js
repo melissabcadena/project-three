@@ -7,10 +7,10 @@ db.once('open', async () => {
 
   const drinks = await Drink.insertMany([
     {
-      name: 'Alphabet Blocks',
+      name: 'Latte',
       description: '',
-      image: 'alphabet-blocks.jpg',
-      price: 4.00,
+      image: 'latte.jpeg',
+      price: 5.00,
       quantity: 0,
       size: 'Small',
       iced: 'No',
@@ -18,10 +18,76 @@ db.once('open', async () => {
       specialInstructions: ''
     },
     {
-        name: 'Alphabet Blocks',
+        name: 'Mocha',
         description: '',
-        image: 'alphabet-blocks.jpg',
-        price: 4.00,
+        image: 'mocha.jpeg',
+        price: 5.00,
+        quantity: 0,
+        size: 'Small',
+        iced: 'No',
+        milk: 'No Milk',
+        specialInstructions: ''
+      },
+      {
+        name: 'Americano',
+        description: '',
+        image: 'americano.jpeg',
+        price: 3.50,
+        quantity: 0,
+        size: 'Small',
+        iced: 'No',
+        milk: 'No Milk',
+        specialInstructions: ''
+      },
+      {
+        name: 'House Coffee',
+        description: '',
+        image: 'house-coffee.jpeg',
+        price: 3.00,
+        quantity: 0,
+        size: 'Small',
+        iced: 'No',
+        milk: 'No Milk',
+        specialInstructions: ''
+      },
+      {
+        name: 'Cappuccino',
+        description: '',
+        image: 'mocha.jpeg',
+        price: 4.50,
+        quantity: 0,
+        size: 'Small',
+        iced: 'No',
+        milk: 'No Milk',
+        specialInstructions: ''
+      },
+      {
+        name: 'Espresso',
+        description: '',
+        image: 'espresso.jpeg',
+        price: 2.00,
+        quantity: 0,
+        size: 'Small',
+        iced: 'No',
+        milk: 'No Milk',
+        specialInstructions: ''
+      },
+      {
+        name: 'Hot Chocolate',
+        description: '',
+        image: 'hot-chocolate.jpeg',
+        price: 3.00,
+        quantity: 0,
+        size: 'Small',
+        iced: 'No',
+        milk: 'No Milk',
+        specialInstructions: ''
+      },
+      {
+        name: 'Mongo Mocha',
+        description: '',
+        image: 'mongo-mocha.jpeg',
+        price: 6.00,
         quantity: 0,
         size: 'Small',
         iced: 'No',
