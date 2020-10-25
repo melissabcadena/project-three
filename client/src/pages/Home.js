@@ -1,7 +1,9 @@
 import React from 'react';
-import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link} from '@chakra-ui/core';
+import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link, Text} from '@chakra-ui/core';
 import theme  from '../theme/theme';
+
 import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
@@ -43,7 +45,7 @@ const Home = () => {
                 lineHeight={1.5}
                 textAlign={["center", "center", "left", "left"]}
             >
-                Order from our delicous menu
+                Order from our delicious menu
             </Heading>
             <Link to="/">
                 <Button
@@ -60,6 +62,7 @@ const Home = () => {
             </Stack>
 
         </Flex>
+        <Footer/>
         </ThemeProvider>
     );
 };
