@@ -2,14 +2,17 @@
 import gql from 'graphql-tag';
 
 export const QUERY_DRINKS = gql`
-    query getDrinks() {
-        drinks() {
+    query getDrinks($category: ID) {
+        drinks(category: $category) {
             _id
             name
             description
             price
             quantity
             image
+            category {
+              _id
+            }
         }
     }
 `;
@@ -30,8 +33,20 @@ export const QUERY_ALL_DRINKS = gql`
       description
       price
       quantity
+      category {
+        name
+      }
     }
   }
+`;
+
+export const QUERY_CATEGORIES = gql`
+{
+  categories {
+    _id
+    name
+  }
+}
 `;
 
 export const QUERY_USER = gql`
