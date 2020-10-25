@@ -1,10 +1,13 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Drink, Order } = require('../models');
+const { User, Drink, Order, Category } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
     Query: {
+      categories: async () => {
+        return await Category.find();
+      },
       // get all drinks
       drinks: async (parent, { category, name }) => {
         const params = {};

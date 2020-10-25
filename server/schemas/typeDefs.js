@@ -41,6 +41,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    categories: [Category]
     drinks(category: ID, name: String): [Drink]
     drink(_id: ID!): Drink
     user: User
