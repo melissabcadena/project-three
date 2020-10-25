@@ -1,14 +1,13 @@
 import React from 'react';
-import { ThemeProvider, Box } from '@chakra-ui/core';
+import { ThemeProvider } from '@chakra-ui/core';
 import theme  from '../theme/theme';
+import Nav from '../components/Nav';
 
 
 const Home = () => {
     return (
         <ThemeProvider theme={theme}>
-        <Box bg="brown.1" w="100%" p={4} color="white">
-            Brand Name
-        </Box>
+        <Nav/>
         <div>
             Home Page
         </div>
