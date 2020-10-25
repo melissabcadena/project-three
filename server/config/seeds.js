@@ -1,7 +1,15 @@
 const db = require('./connection');
-const { User, Drink } = require('../models');
+const { User, Drink, Category } = require('../models');
 
 db.once('open', async () => {
+    await Category.deleteMany();
+  
+    const categories = await Category.insertMany([
+      { name: 'Hot' },
+      { name: 'Iced' }
+    ]);
+  
+    console.log('categories seeded');
 
   await Drink.deleteMany();
 
@@ -10,90 +18,82 @@ db.once('open', async () => {
       name: 'Latte',
       description: '',
       image: 'latte.jpeg',
+      category: categories[0]._id,
       price: 5.00,
-      quantity: 0,
-      size: 'Small',
-      iced: 'No',
-      milk: 'No Milk',
-      specialInstructions: ''
+      quantity: 1
     },
     {
         name: 'Mocha',
         description: '',
         image: 'mocha.jpeg',
+        category: categories[0]._id,
         price: 5.00,
-        quantity: 0,
-        size: 'Small',
-        iced: 'No',
-        milk: 'No Milk',
-        specialInstructions: ''
+        quantity: 1
       },
       {
         name: 'Americano',
         description: '',
         image: 'americano.jpeg',
-        price: 3.50,
-        quantity: 0,
-        size: 'Small',
-        iced: 'No',
-        milk: 'No Milk',
-        specialInstructions: ''
+        category: categories[0]._id,
+        price: 3.00,
+        quantity: 1
       },
       {
         name: 'House Coffee',
         description: '',
         image: 'house-coffee.jpeg',
-        price: 3.00,
-        quantity: 0,
-        size: 'Small',
-        iced: 'No',
-        milk: 'No Milk',
-        specialInstructions: ''
+        category: categories[0]._id,
+        price: 2.50,
+        quantity: 1
       },
       {
         name: 'Cappuccino',
         description: '',
         image: 'mocha.jpeg',
+        category: categories[0]._id,
         price: 4.50,
-        quantity: 0,
-        size: 'Small',
-        iced: 'No',
-        milk: 'No Milk',
-        specialInstructions: ''
+        quantity: 1
       },
       {
-        name: 'Espresso',
+        name: 'Iced Latte',
         description: '',
-        image: 'espresso.jpeg',
-        price: 2.00,
-        quantity: 0,
-        size: 'Small',
-        iced: 'No',
-        milk: 'No Milk',
-        specialInstructions: ''
+        image: 'latte.jpeg',
+        category: categories[1]._id,
+        price: 5.00,
+        quantity: 1
       },
       {
-        name: 'Hot Chocolate',
-        description: '',
-        image: 'hot-chocolate.jpeg',
-        price: 3.00,
-        quantity: 0,
-        size: 'Small',
-        iced: 'No',
-        milk: 'No Milk',
-        specialInstructions: ''
-      },
-      {
-        name: 'Javajava Mocha',
-        description: '',
-        image: 'javajava-mocha.jpeg',
-        price: 6.00,
-        quantity: 0,
-        size: 'Small',
-        iced: 'No',
-        milk: 'No Milk',
-        specialInstructions: ''
-      }
+          name: 'Iced Mocha',
+          description: '',
+          image: 'mocha.jpeg',
+          category: categories[1]._id,
+          price: 5.00,
+          quantity: 1
+        },
+        {
+          name: 'Iced Americano',
+          description: '',
+          image: 'americano.jpeg',
+          category: categories[1]._id,
+          price: 3.00,
+          quantity: 1
+        },
+        {
+          name: 'Iced Coffee',
+          description: '',
+          image: 'house-coffee.jpeg',
+          category: categories[1]._id,
+          price: 2.50,
+          quantity: 1
+        },
+        {
+          name: 'Iced Cappuccino',
+          description: '',
+          image: 'mocha.jpeg',
+          category: categories[1]._id,
+          price: 4.50,
+          quantity: 1
+        }
   ]);
 
   console.log('drinks seeded');
