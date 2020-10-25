@@ -23,7 +23,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_ORDER = gql`
-    mutation addOrder($drink: [ID]!) {
+    mutation addOrder($drinks: [ID]!) {
         addOrder(drinks: $drinks) {
             drinks {
                 _id

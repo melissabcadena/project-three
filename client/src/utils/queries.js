@@ -1,9 +1,18 @@
 
 import gql from 'graphql-tag';
 
+export const QUERY_CATEGORIES = gql`
+{
+  categories {
+    _id
+    name
+  }
+}
+`;
+
 export const QUERY_DRINKS = gql`
-    query getDrinks() {
-        drinks() {
+    query getDrinks($category: ID) {
+        drinks(category: $category) {
             _id
             name
             description
