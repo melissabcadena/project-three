@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core";
+import { Box, Flex, Link, Heading } from "@chakra-ui/core";
+
+const NavLink = ({ children, ...props }) => (
+    <Link px={2} color="white.2" {...props}>
+      {children}
+    </Link>
+);
+  
 
 const MenuItems = ({ children }) => (
   <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
@@ -7,58 +14,26 @@ const MenuItems = ({ children }) => (
   </Text>
 );
 
-const Nav = props => {
-  const [show, setShow] = React.useState(false);
-  const handleToggle = () => setShow(!show);
-
-
-   return <Flex
-      as="nav"
-      align="center"
-      justify="space-between"
-      wrap="wrap"
-      padding="1.5rem"
-      bg="teal.500"
-      color="white"
-    >
-      <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg">
-          br for java
-        </Heading>
-      </Flex>
-
-      <Box display={{ sm: "block", md: "none" }} onClick={handleToggle}>
-        <svg
-          fill="white"
-          width="12px"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-      </Box>
-
-      <Box
-        display={{ sm: show ? "block" : "none", md: "flex" }}
-        width={{ sm: "full", md: "auto" }}
+    return (
+        <Flex
+        bg="brown.1"
+        w="100%"
+        justifyContent="space-between"
         alignItems="center"
-        flexGrow={1}
-      >
-        <MenuItems>Menu</MenuItems>
-        <MenuItems>My Order</MenuItems>
-        <MenuItems>My Order History</MenuItems>
-      </Box>
+        >
+        <Flex flexDirection="row" justifyContent="center" alignItems="center">
+          <Heading as="h1" pl={3} color="white.2">
+            {"<br> for Java"}
+          </Heading>
+        </Flex>
+        <Box pr={3}>
+          <NavLink>Home</NavLink>
+          <NavLink>Menu</NavLink>
+          <NavLink>Cart</NavLink>
+          <NavLink>Signup</NavLink>
+        </Box>
+      </Flex>
+    );
 
-      <Box
-        display={{ sm: show ? "block" : "none", md: "block" }}
-        mt={{ base: 4, md: 0 }}
-      >
-        <Button bg="transparent" border="1px">
-          Login
-        </Button>
-      </Box>
-    </Flex>
-};
 
 export default Nav;
