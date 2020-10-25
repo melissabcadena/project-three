@@ -19,23 +19,6 @@ const drinkSchema = new Schema({
     required: true,
     min: 0.99
   },
-  // quantity: {
-  //   type: Number,
-  //   min: 0,
-  //   default: 0
-  // },
-  // size: {
-  //   type: String,
-  //   default: "Small", 
-  //   required: true
-  // },
-  // milk: {
-  //   type: String,
-  //   default: "No Milk"
-  // },
-  // specialInstructions: {
-  //   type: String
-  // },
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
