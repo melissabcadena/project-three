@@ -3,8 +3,8 @@ import { Box, Image, } from '@chakra-ui/core';
 
 function DrinkCard() {
     return(
-        <Box maxW="sm" borderWidth="2px" bg="gray.2">
-            <Image src="https://via.placeholder.com/250" />
+        <Box maxW="sm" borderWidth="2px" bg="white.2">
+            <Image src="https://via.placeholder.com/200" />
             <Box p="6">
                 <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" isTruncated>
                     Coffee

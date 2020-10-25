@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link, Text} from '@chakra-ui/core';
+import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link, Text, Grid} from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
 import Nav from '../components/Nav';
@@ -11,9 +11,14 @@ const Menu = () => {
     return (
         <ThemeProvider theme={theme}>
             <Nav/>
-            <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
+
+            <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                 <DrinkCard/>
-            </Box>
+                <DrinkCard/>
+                <DrinkCard/>
+            </Grid>
+
+            
             <Footer/>
         </ThemeProvider>
     );
