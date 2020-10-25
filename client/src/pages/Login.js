@@ -26,15 +26,16 @@ const Login = () => {
                 </Box>
                 <Box my={4} textAlign="left">
                     <form>
+
                         <FormControl>
                             <FormLabel isRequired>Email</FormLabel>
-                            <Input type="email" placeholder="test@test.com" size="md"/>
+                            <Input type="email" placeholder="test@test.com" size="lg"/>
                         </FormControl>
                         <FormControl mt={6}>
                             <FormLabel isRequired>Password</FormLabel>
-                            <Input type="password" placeholder="*******" />
+                            <Input type="password" placeholder="*******" size='lg'/>
                         </FormControl>
-                        <Button width="full" mt={4} type="submit">
+                        <Button width="full" mt={4} type="submit" size='xl'>
                         Log In
                         </Button>
                     </form>

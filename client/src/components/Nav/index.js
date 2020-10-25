@@ -11,12 +11,12 @@ const NavLink = ({ children, ...props }) => (
 function Nav() {
 
     return (
-        <Flex
+      <Flex
         bg="brown.1"
         w="100%"
         justifyContent="space-between"
         alignItems="center"
-        >
+      >
         <Flex flexDirection="row" justifyContent="center" alignItems="center">
           <Heading as="h1" pl={3} color="white.2">
             {"<br> for Java"}
@@ -26,6 +26,7 @@ function Nav() {
           <NavLink>Home</NavLink>
           <NavLink>Menu</NavLink>
           <NavLink>Cart</NavLink>
+          <NavLink>Login</NavLink>
           <NavLink>Signup</NavLink>
         </Box>
       </Flex>
