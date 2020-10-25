@@ -19,7 +19,7 @@ function Nav() {
         >
         <Flex flexDirection="row" justifyContent="center" alignItems="center">
           <Heading as="h1" pl={3} color="white.2">
-            br for Java
+            {"<br> for Java"}
           </Heading>
         </Flex>
         <Box pr={3}>

@@ -34,7 +34,7 @@ const Home = () => {
                 color="primary.800"
                 textAlign={["center", "center", "left", "left"]}
             >
-                Why not take a br for Java?
+                {"Why not take a <br> for Java?"}
             </Heading>
             <Heading
                 as="h2"
