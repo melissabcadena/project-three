@@ -6,10 +6,25 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const resolvers = {
     Query: {
       // get all drinks
-      drinks: async () => {
-        return drinks.find();
-      },
+      drinks: async (parent, { category, name }) => {
+        const params = {};
 
+        if (category) {
+          params.category = category;
+        }
+
+        if(name) {
+          params.name = {
+            $regex: name
+          };
+        }
+        return await Drink.find(params).populate('category');
+      },
+      // get one drink
+      drink: async (parent, {_id}) => {
+        return await Product.findById(_id).populate('category');
+      },
+      // checkout
       order: async (parent, { _id }, context) => {
         if (context.user) {
           const user = await User.findById(context.user._id).populate({
@@ -47,7 +62,7 @@ const resolvers = {
             quantity: 1
           });
         }
-  
+        // stripe
         const session = await stripe.checkout.sessions.create({
           payment_method_types: ['card'],
           line_items,
@@ -57,6 +72,17 @@ const resolvers = {
         });
   
         return { session: session.id };
+      },
+      // get user for order history
+      user: async (parent, {_id}) => {
+        if(context.user) {
+          const user = await (await User.findById(context.user_id)).populated({
+            path: 'order.drinks',
+            populate: 'category'
+          });
+          // what is this for? how to we show the info we want for order history page?
+          user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+        }
       }
     },
     Mutation: {
