@@ -9,8 +9,6 @@ import customTheme  from '../src/theme/theme';
 // import Signup from './pages/Signup';
 import Login from './pages/Login';
 
-import Nav from './components/Nav';
-
 
 function App() {
   return (

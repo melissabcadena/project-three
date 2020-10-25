@@ -8,11 +8,7 @@ const NavLink = ({ children, ...props }) => (
 );
   
 
-const MenuItems = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-    {children}
-  </Text>
-);
+function Nav() {
 
     return (
       <Flex
@@ -35,6 +31,6 @@ const MenuItems = ({ children }) => (
         </Box>
       </Flex>
     );
-
+}
 
 export default Nav;
