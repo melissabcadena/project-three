@@ -4,10 +4,11 @@ const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
+
+  // how to query all drinks
     Query: {
-      // get all drinks
       drinks: async () => {
-        return drinks.find();
+        return AllDrinks.find();
       },
 
       order: async (parent, { _id }, context) => {
