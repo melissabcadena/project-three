@@ -84,9 +84,9 @@ db.once('open', async () => {
         specialInstructions: ''
       },
       {
-        name: 'Mongo Mocha',
+        name: 'Javajava Mocha',
         description: '',
-        image: 'mongo-mocha.jpeg',
+        image: 'javajava-mocha.jpeg',
         price: 6.00,
         quantity: 0,
         size: 'Small',
