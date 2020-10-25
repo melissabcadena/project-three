@@ -19,6 +19,9 @@ export const QUERY_DRINKS = gql`
             price
             quantity
             image
+            category {
+              _id
+            }
         }
     }
 `;
@@ -39,8 +42,20 @@ export const QUERY_ALL_DRINKS = gql`
       description
       price
       quantity
+      category {
+        name
+      }
     }
   }
+`;
+
+export const QUERY_CATEGORIES = gql`
+{
+  categories {
+    _id
+    name
+  }
+}
 `;
 
 export const QUERY_USER = gql`
