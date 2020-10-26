@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-    Flex,
-    Box,
-    Heading,
-    FormControl,
-    FormLabel,
-    Input,
-    Button,
-    ThemeProvider
-} from '@chakra-ui/core';
+import {ThemeProvider, Input, InputGroup, Stack, Button, FormControl, Divider, Flex, Box, Heading } from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
 import Nav from '../components/Nav';
@@ -19,28 +10,29 @@ const Login = () => {
     return (
         <ThemeProvider theme={theme}>
             <Nav/>
-            <Flex width="full" align="center" justifyContent="center" minHeight='100vh'>
-            <Box px={4} maxWidth="500px" borderWidth={1} borderRadius={8} boxShadow="lg" textAlign="center">
+            <Flex  width="full" align="center" justifyContent="center" minHeight='100vh'>
                 <Box textAlign="center">
                     <Heading>Login</Heading>
                 </Box>
-                <Box my={4} textAlign="left">
-                    <form>
-
-                        <FormControl>
-                            <FormLabel isRequired>Email</FormLabel>
-                            <Input type="email" placeholder="test@test.com" size="lg"/>
-                        </FormControl>
-                        <FormControl mt={6}>
-                            <FormLabel isRequired>Password</FormLabel>
-                            <Input type="password" placeholder="*******" size='lg'/>
-                        </FormControl>
-                        <Button width="full" mt={4} type="submit" size='xl'>
-                        Log In
-                        </Button>
+                <Box>
+                    <form action='submit'>
+                        <Stack spacing={3}>
+                            <FormControl isRequired>
+                                <InputGroup>
+                                    <Input type="email" placeholder="Email"/>
+                                </InputGroup>
+                            </FormControl>
+                            <Divider/>
+                            <FormControl isRequired>
+                                <InputGroup>
+                                    <Input type="password" placeholder="Password"/>
+                                </InputGroup>
+                            </FormControl>
+                            <Divider/>
+                            <Button type="submit" size='xl'>Sign up</Button>
+                        </Stack>
                     </form>
                 </Box>
-            </Box>
             </Flex>
             <Footer/>
         </ThemeProvider>

@@ -6,7 +6,7 @@ import customTheme  from '../src/theme/theme';
 //import Menu from './pages/Menu';
 // import MyOrder from './pages/MyOrder';
 // import History from './pages/History';
-// import Signup from './pages/Signup';
+import Signup from './pages/Signup';
 import Login from './pages/Login';
 
 
@@ -16,6 +16,7 @@ function App() {
       {/* <Home/> */}
       {/* <Menu/> */}
       <Login/>
+      {/* <Signup/> */}
     </ThemeProvider>
     
   );
