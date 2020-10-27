@@ -1,22 +1,59 @@
 import React from 'react';
+
+// UI
 import { ThemeProvider } from '@chakra-ui/core';
 import customTheme  from '../src/theme/theme';
 
-//import Home from './pages/Home';
-//import Menu from './pages/Menu';
-// import MyOrder from './pages/MyOrder';
-// import History from './pages/History';
-// import Signup from './pages/Signup';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {ApolloProvider} from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+import { StoreProvider } from './utils/GlobalState';
+
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import MyOrder from './pages/MyOrder';
+import History from './pages/History';
+import Signup from './pages/Signup';
 import Login from './pages/Login';
 
+import Nav from './components/Nav';
+import Footer from './components/Footer'
+
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}`: ''
+      }
+    })
+  },
+  uri: '/graphql',
+})
 
 function App() {
   return (
-    <ThemeProvider theme={customTheme}>
-      {/* <Home/> */}
-      {/* <Menu/> */}
-      <Login/>
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <Router>
+        <div>
+          <StoreProvider>
+            <ThemeProvider theme={customTheme}>
+              <Nav />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/order" component={MyOrder} />
+                <Route exact path="/order-history" component={History} />
+              </Switch>
+              {/* <Home/> */}
+              <Menu/>
+              <Footer />
+            </ThemeProvider>
+          </StoreProvider>
+        </div>
+      </Router>
+    </ApolloProvider>
     
   );
 }
