@@ -42,7 +42,7 @@ const Home = () => {
             >
                 Order from our delicious menu
             </Heading>
-            <Link to="/">
+            <Link href="/menu">
                 <Button
                 variantColor="primary"
                 borderRadius="8px"
