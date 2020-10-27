@@ -2,14 +2,9 @@ import React from 'react';
 import {ThemeProvider, Input, InputGroup, Stack, Button, FormControl, Divider, Flex, Box, Heading } from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-
-
 const Signup = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Nav/>
             <Flex  width="full" align="center" justifyContent="center" minHeight='100vh'>
                 <Box textAlign="center">
                     <Heading>Signup</Heading>
@@ -40,8 +35,6 @@ const Signup = () => {
                     </form>
                 </Box>
             </Flex>
-            
-            <Footer/>
         </ThemeProvider>
     );
 };
