@@ -1,13 +1,6 @@
 import React from 'react';
 import { Box, Flex, Link, Heading } from "@chakra-ui/core";
 
-const NavLink = ({ children, ...props }) => (
-    <Link px={2} color="white.2" {...props}>
-      {children}
-    </Link>
-);
-  
-
 function Nav() {
 
     return (
@@ -23,11 +16,21 @@ function Nav() {
           </Heading>
         </Flex>
         <Box pr={3}>
-          <NavLink>Home</NavLink>
-          <NavLink>Menu</NavLink>
-          <NavLink>Cart</NavLink>
-          <NavLink>Login</NavLink>
-          <NavLink>Signup</NavLink>
+          <Link px={2} color="white.2" href="/">
+            Home
+          </Link>
+          <Link px={2} color="white.2" href="/menu">
+            Menu
+          </Link>
+          <Link px={2} color="white.2" href="/order">
+            Cart
+          </Link>
+          <Link px={2} color="white.2" href="/login">
+            Login
+          </Link>
+          <Link px={2} color="white.2" href="/signup">
+            Signup
+          </Link>
         </Box>
       </Flex>
     );
