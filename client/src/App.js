@@ -46,8 +46,6 @@ function App() {
                 <Route exact path="/order" component={MyOrder} />
                 <Route exact path="/order-history" component={History} />
               </Switch>
-              {/* <Home/> */}
-              <Menu/>
               <Footer />
             </ThemeProvider>
           </StoreProvider>
