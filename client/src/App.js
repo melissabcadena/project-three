@@ -4,6 +4,7 @@ import React from 'react';
 import { ThemeProvider } from '@chakra-ui/core';
 import customTheme  from '../src/theme/theme';
 
+<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
@@ -13,6 +14,12 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import MyOrder from './pages/MyOrder';
 import History from './pages/History';
+=======
+//import Home from './pages/Home';
+//import Menu from './pages/Menu';
+// import MyOrder from './pages/MyOrder';
+// import History from './pages/History';
+>>>>>>> feature/react
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
@@ -33,6 +40,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+<<<<<<< HEAD
     <ApolloProvider client={client}>
       <Router>
         <div>
@@ -52,6 +60,14 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
+=======
+    <ThemeProvider theme={customTheme}>
+      {/* <Home/> */}
+      {/* <Menu/> */}
+      <Login/>
+      {/* <Signup/> */}
+    </ThemeProvider>
+>>>>>>> feature/react
     
   );
 }
