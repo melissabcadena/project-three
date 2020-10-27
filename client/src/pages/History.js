@@ -5,8 +5,6 @@ import theme  from '../theme/theme';
 const History = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Nav/>
-            <Footer/>
         </ThemeProvider>
     );
 };

@@ -8,12 +8,14 @@ import DrinkCard from '../components/DrinkCard';
 const Menu = () => {
     return (
         <ThemeProvider theme={theme}>
-
-            <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                <DrinkCard/>
-                <DrinkCard/>
-                <DrinkCard/>
-            </Grid>
+            <Box>
+                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                    <DrinkCard/>
+                    <DrinkCard/>
+                    <DrinkCard/>
+                </Grid>
+            </Box>
+            
 
         </ThemeProvider>
     );
