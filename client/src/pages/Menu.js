@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link, Text, Grid} from '@chakra-ui/core';
+import { ThemeProvider, Box, Grid} from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
 import DrinkCard from '../components/DrinkCard';
