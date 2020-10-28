@@ -12,7 +12,9 @@ function Nav() {
       >
         <Flex flexDirection="row" justifyContent="center" alignItems="center">
           <Heading as="h1" pl={3} color="white.2">
+          <Link color="white.2" href="/">
             {"<br> for Java ☕"}
+            </Link>
           </Heading>
         </Flex>
         <Box pr={3}>

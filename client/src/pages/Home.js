@@ -11,11 +11,11 @@ const Home = () => {
         direction={{ base: "column-reverse", md: "row" }}
         wrap="no-wrap"
         minH="70vh"
-        px={8}
+        px={10}
         mb={16}
         >
             <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
-                <Image src="https://via.placeholder.com/1000" size="100%" rounded="1rem" shadow="2xl" />
+                <Image src="./images/cover.jpg" alt="coffee banner"size="100%" rounded="1rem" shadow="2xl" />
             </Box>
             <Stack
             spacing={4}
@@ -29,6 +29,7 @@ const Home = () => {
                 color="primary.800"
                 textAlign={["center", "center", "left", "left"]}
             >
+                {"Sleepy? Tired? Bad day?"}<br></br>
                 {"Why not take a <br> for Java?"}
             </Heading>
             <Heading

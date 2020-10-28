@@ -1,17 +1,21 @@
 import React from 'react';
-import {Flex, Text} from '@chakra-ui/core';
+import { Flex, Text } from '@chakra-ui/core';
 
 function Footer() {
-    return(
+    return (
         <Flex
-        bg="gray.1"
-        w="100%"
-        justifyContent="space-between"
-        alignItems="center"
+            bg="gray.1"
+            w="100%"
+            justifyContent="space-between"
+            alignItems="center"
         >
             <Flex flexDirection="row" justifyContent="center" alignItems="center">
                 <Text p={3} color="white.2" fontSize="xl">
-                    Made with React
+                    &copy; 2020 All Rights Reserved. Designed &amp; developed by <a href="https://github.com/d-belleza" target="_blank">David
+                                </a>, <a href="https://github.com/melissabcadena" target="_blank">Melissa</a>, <a href="https://github.com/cheriecookson"
+                        target="_blank">Cherie</a>, <a href="https://github.com/sylviaprabudy/" target="_blank">Sylvia
+                                </a> &amp; <a href="https://github.com/osadenaike" target="_blank">Femi
+                                </a>
                 </Text>
             </Flex>
         </Flex>
