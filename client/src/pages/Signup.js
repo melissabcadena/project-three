@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, Input, InputGroup, Stack, Button, FormControl, Divider, Flex, Box, Heading, FormLabel } from '@chakra-ui/core';
+import { ThemeProvider, Input, InputGroup, Stack, Button, FormControl, Flex, Box, Heading, FormLabel } from '@chakra-ui/core';
 import theme from '../theme/theme';
 
 const Signup = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link, Text} from '@chakra-ui/core';
+import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link} from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
 const Home = () => {
