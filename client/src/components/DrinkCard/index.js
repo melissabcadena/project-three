@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup } from '@chakra-ui/core';
 
-function DrinkCard() {
+function DrinkCard({drink }) {
 
     const [show, setShow] = React.useState(false);
 
@@ -10,16 +10,16 @@ function DrinkCard() {
     return (
 
         <Box maxW="sm" borderWidth="2px" bg="white.2">
-            <Image src="https://via.placeholder.com/200" />
+            <Image src={drink.image} />
             <Box p="6">
                 <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" isTruncated>
-                    Coffee
+                    {drink.name}
                     </Box>
                 <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
-                    Price
+                    {drink.price}
                     </Box>
                 <Box as="span" fontSize="sm">
-                    Description of the coffee
+                    {drink.description} 
                     </Box>
             </Box>
             <Button variantColor="primary"

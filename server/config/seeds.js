@@ -7,7 +7,7 @@ db.once('open', async () => {
     const categories = await Category.insertMany([
         { name: 'Hot Drinks' },
         { name: 'Cold Drinks' },
-        { name: 'Tasty Treats' },
+        // { name: 'Tasty Treats' },
     ]);
 
     console.log('categories seeded');
@@ -18,7 +18,7 @@ db.once('open', async () => {
         {
             name: 'Latte',
             description: '',
-            image: 'latte.jpeg',
+            image: './images/latte.jpeg',
             category: categories[0]._id,
             price: 5.00,
             quantity: 1
@@ -26,7 +26,7 @@ db.once('open', async () => {
         {
             name: 'Mocha',
             description: '',
-            image: 'mocha.jpeg',
+            image: './images/mocha.jpeg',
             category: categories[0]._id,
             price: 5.00,
             quantity: 1
@@ -34,7 +34,7 @@ db.once('open', async () => {
         {
             name: 'Americano',
             description: '',
-            image: 'americano.jpeg',
+            image: './images/americano.jpeg',
             category: categories[0]._id,
             price: 3.00,
             quantity: 1
@@ -42,7 +42,7 @@ db.once('open', async () => {
         {
             name: 'House Coffee',
             description: '',
-            image: 'house-coffee.jpeg',
+            image: './images/house-coffee.jpeg',
             category: categories[0]._id,
             price: 2.50,
             quantity: 1
@@ -50,7 +50,7 @@ db.once('open', async () => {
         {
             name: 'Cappuccino',
             description: '',
-            image: 'cappuccino.jpeg',
+            image: './images/cappuccino.jpeg',
             category: categories[0]._id,
             price: 4.50,
             quantity: 1
@@ -58,7 +58,7 @@ db.once('open', async () => {
         {
             name: 'Hot Chocolate',
             description: '',
-            image: 'hot-chocolate.jpeg',
+            image: './images/hot-chocolate.jpeg',
             category: categories[0]._id,
             price: 4.50,
             quantity: 1
@@ -66,7 +66,7 @@ db.once('open', async () => {
         {
             name: 'Iced Latte',
             description: '',
-            image: 'iced-latte.jpeg',
+            image: './images/iced-latte.jpeg',
             category: categories[1]._id,
             price: 5.00,
             quantity: 1
@@ -74,7 +74,7 @@ db.once('open', async () => {
         {
             name: 'Iced Mocha',
             description: '',
-            image: 'iced-mocha.jpeg',
+            image: './images/iced-mocha.jpeg',
             category: categories[1]._id,
             price: 5.00,
             quantity: 1
@@ -82,7 +82,7 @@ db.once('open', async () => {
         {
             name: 'Cold-Brewed Coffee',
             description: '',
-            image: 'cold-brewed.jpeg',
+            image: './images/cold-brewed.jpeg',
             category: categories[1]._id,
             price: 2.50,
             quantity: 1
@@ -90,51 +90,51 @@ db.once('open', async () => {
         {
             name: 'Cappuccino on Ice',
             description: '',
-            image: 'iced-cappuccino.jpeg',
+            image: './images/iced-cappuccino.jpeg',
             category: categories[1]._id,
             price: 4.50,
             quantity: 1
         },
-        {
-            name: 'Blue Berry Muffin',
-            description: '',
-            image: 'bb-muffin.jpeg',
-            category: categories[2]._id,
-            price: 2.00,
-            quantity: 1
-        },
-        {
-            name: 'Biscotti',
-            description: '',
-            image: 'biscotti.jpeg',
-            category: categories[2]._id,
-            price: 2.00,
-            quantity: 1
-        },
-        {
-            name: 'Croissant',
-            description: '',
-            image: 'croissants.jpeg',
-            category: categories[2]._id,
-            price: 2.00,
-            quantity: 1
-        },
-        {
-            name: 'Chocolate Chunk Cookie',
-            description: '',
-            image: 'choc-chunk.jpeg',
-            category: categories[2]._id,
-            price: 2.00,
-            quantity: 1
-        },
-        {
-            name: 'Chocolate Muffin',
-            description: '',
-            image: 'choc-muffin.jpeg',
-            category: categories[2]._id,
-            price: 2.00,
-            quantity: 1
-        },
+    //     {
+    //         name: 'Blue Berry Muffin',
+    //         description: '',
+    //         image: 'bb-muffin.jpeg',
+    //         category: categories[2]._id,
+    //         price: 2.00,
+    //         quantity: 1
+    //     },
+    //     {
+    //         name: 'Biscotti',
+    //         description: '',
+    //         image: 'biscotti.jpeg',
+    //         category: categories[2]._id,
+    //         price: 2.00,
+    //         quantity: 1
+    //     },
+    //     {
+    //         name: 'Croissant',
+    //         description: '',
+    //         image: 'croissants.jpeg',
+    //         category: categories[2]._id,
+    //         price: 2.00,
+    //         quantity: 1
+    //     },
+    //     {
+    //         name: 'Chocolate Chunk Cookie',
+    //         description: '',
+    //         image: 'choc-chunk.jpeg',
+    //         category: categories[2]._id,
+    //         price: 2.00,
+    //         quantity: 1
+    //     },
+    //     {
+    //         name: 'Chocolate Muffin',
+    //         description: '',
+    //         image: 'choc-muffin.jpeg',
+    //         category: categories[2]._id,
+    //         price: 2.00,
+    //         quantity: 1
+    //     },
     ]);
 
     console.log('drinks seeded');
