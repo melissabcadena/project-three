@@ -12,6 +12,10 @@ const Signup = () => {
 
   const handleFormSubmit = async event => {
     event.preventDefault();
+    console.log({
+      email: formState.email, password: formState.password,
+      firstName: formState.firstName, lastName: formState.lastName
+    })
     const mutationResponse = await addUser({
       variables: {
         email: formState.email, password: formState.password,
@@ -24,6 +28,7 @@ const Signup = () => {
 
   const handleChange = event => {
     const { name, value } = event.target;
+    console.log(event.target.type);
     setFormState({
       ...formState,
       [name]: value
@@ -40,26 +45,26 @@ const Signup = () => {
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>First Name</FormLabel>
-                  <Input onChange={handleChange} type="first name" placeholder="first name" aria-label="first name " size="lg" />
+                  <Input onChange={handleChange} name="firstName" id="firstName" type="first name" placeholder="first name" aria-label="first name " size="lg" />
                 </InputGroup>
               </FormControl>
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>Last Name</FormLabel>
-                  <Input onChange={handleChange} type="last name" placeholder="last name" aria-label="last name " size="lg" />
+                  <Input onChange={handleChange} name="lastName" id="lastName" type="last name" placeholder="last name" aria-label="last name " size="lg" />
                 </InputGroup>
               </FormControl>
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>Email</FormLabel>
-                  <Input onChange={handleChange} type="email" placeholder="your email" aria-label="email" size="lg" />
+                  <Input onChange={handleChange} name="email" id="email" type="email" placeholder="your email" aria-label="email" size="lg" />
                 </InputGroup>
               </FormControl>
    
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>Password</FormLabel>
-                  <Input onChange={handleChange} type="password" placeholder="*******" aria-label="password" size="lg" />
+                  <Input onChange={handleChange} name="password" id="pwd" type="password" placeholder="*******" aria-label="password" size="lg" />
                 </InputGroup>
               </FormControl>
           
