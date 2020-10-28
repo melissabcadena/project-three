@@ -11,10 +11,10 @@ function Footer() {
         >
             <Flex flexDirection="row" justifyContent="center" alignItems="center">
                 <Text p={3} color="white.2" fontSize="xl">
-                    &copy; 2020 All Rights Reserved. Designed &amp; developed by <a href="https://github.com/d-belleza" target="_blank">David
-                                </a>, <a href="https://github.com/melissabcadena" target="_blank">Melissa</a>, <a href="https://github.com/cheriecookson"
-                        target="_blank">Cherie</a>, <a href="https://github.com/sylviaprabudy/" target="_blank">Sylvia
-                                </a> &amp; <a href="https://github.com/osadenaike" target="_blank">Femi
+                    &copy; 2020 All Rights Reserved. Designed &amp; developed by <a href="https://github.com/d-belleza" target="blank">David
+                                </a>, <a href="https://github.com/melissabcadena" target="blank">Melissa</a>, <a href="https://github.com/cheriecookson"
+                        target="blank">Cherie</a>, <a href="https://github.com/sylviaprabudy/" target="blank">Sylvia
+                                </a> &amp; <a href="https://github.com/osadenaike" target="blank">Femi
                                 </a>
                 </Text>
             </Flex>
