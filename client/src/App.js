@@ -28,7 +28,7 @@ const client = new ApolloClient({
       }
     })
   },
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 })
 
 function App() {
@@ -44,8 +44,8 @@ function App() {
                 <Route exact path="/menu" component={Menu} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
-                <Route exact path="/order" component={MyOrder} />
-                <Route exact path="/order-history" component={History} />
+                <Route exact path="/cart" component={MyOrder} />
+                <Route exact path="/profile" component={History} />
               </Switch>
               <Footer />
             </ThemeProvider>

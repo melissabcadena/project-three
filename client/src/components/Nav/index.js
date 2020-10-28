@@ -24,7 +24,7 @@ function Nav() {
           <Link px={2} color="white.2" href="/menu">
             Menu
           </Link>
-          <Link px={2} color="white.2" href="/order">
+          <Link px={2} color="white.2" href="/cart">
             Cart
           </Link>
           <Link px={2} color="white.2" href="/login">
