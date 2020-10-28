@@ -53,13 +53,13 @@ const Login = () => {
                         <FormControl isRequired>
                             <InputGroup>
                                 <FormLabel>Email</FormLabel>
-                                <Input onChange={handleChange} name="email" type="email" placeholder="your email" aria-label="email "size="lg"/>
+                                <Input onChange={handleChange} name="email" type="email" placeholder="your email" aria-label="email "size="lg" py="4"/>
                             </InputGroup>
                         </FormControl>
                         <FormControl isRequired>
                             <InputGroup>
                                 <FormLabel>Password</FormLabel>
-                                <Input onChange={handleChange} name="password" type="password" placeholder="*******" aria-label="password" size="lg"/>
+                                <Input onChange={handleChange} name="password" type="password" placeholder="*******" aria-label="password" size="lg" py="4"/>
                             </InputGroup>
                         </FormControl>
                         {
@@ -67,7 +67,12 @@ const Login = () => {
                             <p className="error-text" >The provided credentials are incorrect</p>
                           </div> : null
                         }
-                        <Button width="full" type="submit"  size='xl'>
+                        <Button width="full" type="submit"  size='xl' 
+                            variantColor="primary"
+                            borderRadius="8px"
+                            py="4"
+                            px="4"
+                            lineHeight="1">
                             Log In
                         </Button>
                         </Stack>

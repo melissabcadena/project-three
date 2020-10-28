@@ -11,8 +11,8 @@ function OrderList({name, price, ...rest}){
           <Text mt={4}>{price}</Text>
           <Stack spacing={2}>
             <Text mt={4}>Quantity</Text>
-            <Input variant="outline" placeholder="Enter quantity" size='lg'></Input>
-            <Button width="full" size="xl">Remove</Button>
+            <Input variant="outline" placeholder="Enter quantity" size='lg' py="3" ></Input>
+            <Button width="full" size="xl" borderRadius="8px">Remove</Button>
           </Stack>
           
         </Box>
@@ -36,7 +36,7 @@ const MyOrder = () => {
                 <Box pl={3}>
                     <Heading as='h1'>Total</Heading>
                     <Heading as='h2'>$12.00</Heading>
-                    <Button width="full" type="submit" size="xl">Checkout</Button>
+                    <Button width="full" type="submit" size="xl" py="4" px="4" borderRadius="8px">Checkout</Button>
                 </Box>
                 
             </Flex>

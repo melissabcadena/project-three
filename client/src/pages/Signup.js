@@ -45,30 +45,35 @@ const Signup = () => {
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>First Name</FormLabel>
-                  <Input onChange={handleChange} name="firstName" id="firstName" type="first name" placeholder="first name" aria-label="first name " size="lg" />
+                  <Input onChange={handleChange} name="firstName" id="firstName" type="first name" placeholder="first name" aria-label="first name " size="lg" py="4"/>
                 </InputGroup>
               </FormControl>
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>Last Name</FormLabel>
-                  <Input onChange={handleChange} name="lastName" id="lastName" type="last name" placeholder="last name" aria-label="last name " size="lg" />
+                  <Input onChange={handleChange} name="lastName" id="lastName" type="last name" placeholder="last name" aria-label="last name " size="lg" py="4"/>
                 </InputGroup>
               </FormControl>
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>Email</FormLabel>
-                  <Input onChange={handleChange} name="email" id="email" type="email" placeholder="your email" aria-label="email" size="lg" />
+                  <Input onChange={handleChange} name="email" id="email" type="email" placeholder="your email" aria-label="email" size="lg" py="4"/>
                 </InputGroup>
               </FormControl>
    
               <FormControl isRequired>
                 <InputGroup>
                   <FormLabel>Password</FormLabel>
-                  <Input onChange={handleChange} name="password" id="pwd" type="password" placeholder="*******" aria-label="password" size="lg" />
+                  <Input onChange={handleChange} name="password" id="pwd" type="password" placeholder="*******" aria-label="password" size="lg" py="4"/>
                 </InputGroup>
               </FormControl>
           
-              <Button type="submit" size="xl">Sign up</Button>
+              <Button type="submit" size="xl" 
+                variantColor="primary"
+                borderRadius="8px"
+                py="4"
+                px="4"
+                lineHeight="1" >Sign up</Button>
             </Stack>
           </form>
         </Box>
