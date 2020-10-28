@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 
-=======
-import React from 'react';
->>>>>>> feature/react2
 import { ThemeProvider, Input, InputGroup, Stack, Button, FormControl, Flex, Box, Heading, FormLabel } from '@chakra-ui/core';
 import theme from '../theme/theme';
 
