@@ -1,66 +1,71 @@
 import React from 'react';
 import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup } from '@chakra-ui/core';
-// import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
-// import { idbPromise } from "../../utils/helpers";
-// import { useStoreContext } from "../../utils/GlobalState";
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { idbPromise } from "../../utils/helpers";
+import { useStoreContext } from "../../utils/GlobalState.js";
 
-function DrinkCard({ drink }) {
+function DrinkCard({ item }) {
 
     const [show, setShow] = React.useState(false);
 
     const handleToggle = () => setShow(!show);
 
-    // const [state, dispatch] = useStoreContext();
-    // const {
-    //     image,
-    //     name,
-    //     _id,
-    //     price,
-    //     quantity
-    //   } = item;
+    const [state, dispatch] = useStoreContext();
 
-    //   const { cart } = state
-    // const addToCart = () => {
-    //     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
-    //     if (itemInCart) {
-    //       dispatch({
-    //         type: UPDATE_CART_QUANTITY,
-    //         _id: _id,
-    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //       });
-    //       idbPromise('cart', 'put', {
-    //         ...itemInCart,
-    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //       });
-    //     } else {
-    //       dispatch({
-    //         type: ADD_TO_CART,
-    //         drink: { ...item, purchaseQuantity: 1 }
-    //       });
-    //       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
-    //     }
-    //   }
+    const { cart } = state;
+
+    const {
+        image,
+        name,
+        _id,
+        price,
+        quantity
+      } = item;
+
+    const addToCart = () => {
+        // find the cart item w/ a matching id
+        const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+        // if there is a match, we will update quantity
+        if(itemInCart) {
+            dispatch({
+                type: UPDATE_CART_QUANTITY,
+                _id: _id,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1            
+            });
+            idbPromise('cart', 'put', {
+                ...itemInCart,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+            });
+        } else {
+            dispatch({
+                type: ADD_TO_CART,
+                item: { ...item, purchaseQuantity: 1 }
+            });
+            idbPromise('cart', 'put', {...item, purchaseQuantity: 1 });
+        }
+    console.log(cart);
+    };
     
     return (
         <Box maxW="sm" borderWidth="2px" bg="white.2" textAlign="center">
-            <Image src={drink.image} mt="4" />
+            <Image src={item.image} mt="4" />
             <Box p="4">
                 <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" isTruncated>
-                    {drink.name} &nbsp;
-                    $ {drink.price}
+                    {item.name} &nbsp;
+                    $ {item.price}
                 </Box>
                 <Box as="span" fontSize="sm">
-                    {drink.description}
+                    {item.description}
                 </Box>
-                
+
             <br></br>
-                <Button variantColor="primary"
+                <Button onClick={handleToggle}
                     borderRadius="8px"
                     py="3"
                     px="2"
                     mt="4"
                     lineHeight="1"
-                    size="md" onClick={handleToggle}>
+                    size="md">
                     Customize
                 </Button>
                 <Collapse mt={4} isOpen={show}>
@@ -68,7 +73,7 @@ function DrinkCard({ drink }) {
                         <FormLabel as="legend">Select Size</FormLabel>
                         <RadioGroup defaultValue="Small">
                             <Radio value="Small">Small</Radio>
-                            <Radio value="Large">Large</Radio>
+                            <Radio value="Large">Large (+ $1.00)</Radio>
                         </RadioGroup>
                     </FormControl>
                     <FormControl as="fieldset">
@@ -79,12 +84,13 @@ function DrinkCard({ drink }) {
                         </RadioGroup>
                     </FormControl>
                     <br></br>
-                <Button variantColor="primary"
+                    <Button
                     borderRadius="8px"
                     py="3"
                     px="2"
                     lineHeight="1"
-                    size="md">
+                    size="md"
+                    onClick={addToCart}>
                     Add to Cart
                 </Button>
                 </Collapse>

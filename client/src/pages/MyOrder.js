@@ -1,47 +1,87 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider, 
-    Stack, Flex, Box, Heading, 
-    Text, Button, Input } from '@chakra-ui/core';
+    Stack, Flex, Box, Heading, Button } from '@chakra-ui/core';
 import theme  from '../theme/theme';
-
-function OrderList({name, price, ...rest}){
-    return (
-        <Box p={5} shadow="lg" borderWidth="5px" {...rest}>
-          <Heading fontSize="xl">{name}</Heading>
-          <Text mt={4}>{price}</Text>
-          <Stack spacing={2}>
-            <Text mt={4}>Quantity</Text>
-            <Input variant="outline" placeholder="Enter quantity" size='lg' py="3" ></Input>
-            <Button width="full" size="xl" borderRadius="8px">Remove</Button>
-          </Stack>
-          
-        </Box>
-    );
-}
-
+import Auth from "../utils/auth";
+import CartItem from '../components/CartItem';
+import { useStoreContext } from "../utils/GlobalState.js";
+import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
+import { idbPromise } from "../utils/helpers";
+import { loadStripe } from "@stripe/stripe-js";
+import { QUERY_CHECKOUT } from "../utils/queries"
+import { useLazyQuery } from '@apollo/react-hooks';
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const MyOrder = () => {
-    return (
+    const [state, dispatch] = useStoreContext();
+    const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+    console.log(state);
+    useEffect(() => {
+        async function getCart() {
+            const cart = await idbPromise('cart', 'get');
+            dispatch({ type: ADD_MULTIPLE_TO_CART, drinks: [...cart] })
+        };
+        if (!state.cart.length) {
+            getCart();
+        }
+    }, [state.cart.length, dispatch]);
+
+    useEffect(() => {
+        if (data) {
+          stripePromise.then((res) => {
+            res.redirectToCheckout({ sessionId: data.checkout.session })
+          })
+        }
+      }, [data]);
+    
+    function calculateTotal() {
+        let sum = 0;
+        state.cart.forEach(item => {
+          sum += item.price * item.purchaseQuantity;
+        });
+        return sum.toFixed(2);
+      }
+
+      function submitCheckout() {
+        const drinkIds = [];
+    
+        state.cart.forEach((item) => {
+          for (let i = 0; i < item.purchaseQuantity; i++) {
+            drinkIds.push(item._id);
+          }
+        });
+    
+        getCheckout({
+          variables: { drinks: drinkIds }
+        });
+      }
+
+      return (
         <ThemeProvider theme={theme}>
             <Box pl={5}>
                 <Heading as='h1'>Cart</Heading>
             </Box>
             <Flex justify="center">
-                <Stack>
-                    <OrderList name="Coffee" price="$5.00"/>
-                    <OrderList name="Espresso" price="$2.00"/>
-                    <OrderList name="Water" price="$1.00"/>
-                    
-                </Stack>
-                <Box pl={3}>
-                    <Heading as='h1'>Total</Heading>
-                    <Heading as='h2'>$12.00</Heading>
-                    <Button width="full" type="submit" size="xl" py="4" px="4" borderRadius="8px">Checkout</Button>
-                </Box>
                 
+                    <Stack>
+                    {state.cart.map(item => (
+                        <CartItem key={item._id} item={item} />
+                    ))}
+                    </Stack>
+                
+                    <Box pl={3}>
+                        <Heading as='h1'>Total</Heading>
+                        <Heading as='h2'>${calculateTotal()}</Heading>
+                        { Auth.loggedIn() ? 
+                        <Button width="full" type="submit" size="xl" py="4" px="4" borderRadius="8px" onClick={submitCheckout}>Checkout
+                        </Button> 
+                        :       
+                        <span>Log in to check out!</span>
+                        }
+                    </Box>
             </Flex>
-        </ThemeProvider>
-    );
+            </ThemeProvider>
+        );
 };
 
 

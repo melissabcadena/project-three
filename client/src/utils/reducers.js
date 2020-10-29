@@ -22,7 +22,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cartOpen: true,
-        cart: [...state.cart, action.drink],
+        cart: [...state.cart, action.item],
       };
 
     case ADD_MULTIPLE_TO_CART:
@@ -35,17 +35,17 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cartOpen: true,
-        cart: state.cart.map(drink => {
-          if (action._id === drink._id) {
-            drink.purchaseQuantity = action.purchaseQuantity
+        cart: state.cart.map(item => {
+          if (action._id === item._id) {
+            item.purchaseQuantity = action.purchaseQuantity
           }
-          return drink
+          return item
         })
       };
 
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter(drink => {
-        return drink._id !== action._id;
+      let newState = state.cart.filter(item => {
+        return item._id !== action._id;
       });
 
       return {
