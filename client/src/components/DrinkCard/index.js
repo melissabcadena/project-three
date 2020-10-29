@@ -52,6 +52,7 @@ function DrinkCard({ drink }) {
                 <Box as="span" fontSize="sm">
                     {drink.description}
                 </Box>
+                <Box m="4">
                 <Button variantColor="primary"
                     borderRadius="8px"
                     py="3"
@@ -60,7 +61,8 @@ function DrinkCard({ drink }) {
                     size="md">
                     Add to Cart
                 </Button>
-            <br></br>
+                </Box>
+          
                 <Button variantColor="primary"
                     borderRadius="8px"
                     py="3"
