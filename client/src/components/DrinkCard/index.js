@@ -10,7 +10,7 @@ function DrinkCard({drink }) {
     return (
 
         <Box maxW="sm" borderWidth="2px" bg="white.2">
-            <Image src={drink.image} />
+            <Image  src={drink.image} />
             <Box p="6">
                 <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" isTruncated>
                     {drink.name}
