@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup } from '@chakra-ui/core';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
-// import { idbPromise } from "../../utils/helpers";
+import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState.js";
 
 function DrinkCard({ item }) {
@@ -19,11 +19,8 @@ function DrinkCard({ item }) {
       } = item;
 
     const addToCart = () => {
-
-        console.log(item)
         // find the cart item w/ a matching id
         const itemInCart = cart.find((cartItem) => cartItem._id === _id);
-
         // if there is a match, we will update quantity
         if(itemInCart) {
             dispatch({
@@ -31,11 +28,16 @@ function DrinkCard({ item }) {
                 _id: _id,
                 purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1            
             });
+            idbPromise('cart', 'put', {
+                ...itemInCart,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+            });
         } else {
             dispatch({
                 type: ADD_TO_CART,
                 item: { ...item, purchaseQuantity: 1 }
             });
+            idbPromise('cart', 'put', {...item, purchaseQuantity: 1 });
         }
     console.log(cart);
     };

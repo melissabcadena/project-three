@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider, 
     Stack, Flex, Box, Heading, Button } from '@chakra-ui/core';
 import theme  from '../theme/theme';
 import Auth from "../utils/auth";
 import CartItem from '../components/CartItem';
 import { useStoreContext } from "../utils/GlobalState.js";
+import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
+import { idbPromise } from "../utils/helpers";
 
 const MyOrder = () => {
     const [state, dispatch] = useStoreContext();
     console.log(state);
+    useEffect(() => {
+        async function getCart() {
+            const cart = await idbPromise('cart', 'get');
+            dispatch({ type: ADD_MULTIPLE_TO_CART, drinks: [...cart] })
+        };
+        if (!state.cart.length) {
+            getCart();
+        }
+    }, [state.cart.length, dispatch]);
     function calculateTotal() {
         let sum = 0;
         state.cart.forEach(item => {

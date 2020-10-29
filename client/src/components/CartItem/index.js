@@ -4,6 +4,7 @@ import {
     Text, Button, Input } from '@chakra-ui/core';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { useStoreContext } from '../../utils/GlobalState';
+import { idbPromise } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
     const [state, dispatch] = useStoreContext();
@@ -12,6 +13,7 @@ const CartItem = ({ item }) => {
             type: REMOVE_FROM_CART,
             _id: item._id
         });
+        idbPromise('cart', 'delete', {...item});
     };
     const onChange = (e) => {
         const value = e.target.value;
@@ -21,12 +23,14 @@ const CartItem = ({ item }) => {
                 type: REMOVE_FROM_CART,
                 id: item._id
             });
+            idbPromise('cart', 'delete', {...item});
         } else {
             dispatch({
                 type: UPDATE_CART_QUANTITY,
                 _id: item._id,
                 purchaseQuantity: parseInt(value)
             });
+            idbPromise('cart', 'put', {...item, purchaseQuantity: parseInt(value) });
         }
     };
 
