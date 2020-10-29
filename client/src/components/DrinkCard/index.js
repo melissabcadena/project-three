@@ -10,13 +10,33 @@ function DrinkCard({ item }) {
 
     const { cart } = state;
 
+    const {
+        image,
+        name,
+        _id,
+        price,
+        quantity
+      } = item;
 
     const addToCart = () => {
+
         console.log(item)
-    dispatch({
-        type: ADD_TO_CART,
-        item: { ...item, purchaseQuantity: 1 }
-    });
+        // find the cart item w/ a matching id
+        const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+
+        // if there is a match, we will update quantity
+        if(itemInCart) {
+            dispatch({
+                type: UPDATE_CART_QUANTITY,
+                _id: _id,
+                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1            
+            });
+        } else {
+            dispatch({
+                type: ADD_TO_CART,
+                item: { ...item, purchaseQuantity: 1 }
+            });
+        }
     console.log(cart);
     };
     
