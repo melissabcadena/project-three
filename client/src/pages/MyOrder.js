@@ -24,7 +24,6 @@ const MyOrder = () => {
             </Box>
             <Flex justify="center">
                 
-                {state.cart.length ? (
                     <Stack>
                     {state.cart.map(item => (
                         <CartItem key={item._id} item={item} />
@@ -41,13 +40,6 @@ const MyOrder = () => {
                         <span>Log in to check out!</span>
                         }
                     </Box>
-                ) : (
-                    <Heading as='h2'>Nothing has been added to the cart yet!</Heading>
-                )  
-                }
-                
-                
-                
             </Flex>
             </ThemeProvider>
         );
