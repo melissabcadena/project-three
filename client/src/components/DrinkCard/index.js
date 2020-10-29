@@ -6,6 +6,10 @@ import { useStoreContext } from "../../utils/GlobalState.js";
 
 function DrinkCard({ item }) {
 
+    const [show, setShow] = React.useState(false);
+
+    const handleToggle = () => setShow(!show);
+
     const [state, dispatch] = useStoreContext();
 
     const { cart } = state;
@@ -53,17 +57,9 @@ function DrinkCard({ item }) {
                 <Box as="span" fontSize="sm">
                     {item.description}
                 </Box>
-                <Button
-                    borderRadius="8px"
-                    py="3"
-                    px="2"
-                    lineHeight="1"
-                    size="md"
-                    onClick={addToCart}>
-                    Add to Cart
-                </Button>
+
             <br></br>
-                <Button
+                <Button onClick={handleToggle}
                     borderRadius="8px"
                     py="3"
                     px="2"
@@ -72,7 +68,7 @@ function DrinkCard({ item }) {
                     size="md">
                     Customize
                 </Button>
-                <Collapse mt={4}>
+                <Collapse mt={4} isOpen={show}>
                     <FormControl as="fieldset">
                         <FormLabel as="legend">Select Size</FormLabel>
                         <RadioGroup defaultValue="Small">
@@ -88,12 +84,13 @@ function DrinkCard({ item }) {
                         </RadioGroup>
                     </FormControl>
                     <br></br>
-                <Button variantColor="primary"
+                    <Button
                     borderRadius="8px"
                     py="3"
                     px="2"
                     lineHeight="1"
-                    size="md">
+                    size="md"
+                    onClick={addToCart}>
                     Add to Cart
                 </Button>
                 </Collapse>
