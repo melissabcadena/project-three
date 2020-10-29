@@ -68,7 +68,7 @@ function DrinkCard({ drink }) {
                         <FormLabel as="legend">Select Size</FormLabel>
                         <RadioGroup defaultValue="Small">
                             <Radio value="Small">Small</Radio>
-                            <Radio value="Large">Large</Radio>
+                            <Radio value="Large">Large (+ $1.00)</Radio>
                         </RadioGroup>
                     </FormControl>
                     <FormControl as="fieldset">
