@@ -1,63 +1,43 @@
 import React from 'react';
 import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup } from '@chakra-ui/core';
-// import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 // import { idbPromise } from "../../utils/helpers";
-// import { useStoreContext } from "../../utils/GlobalState";
+import { useStoreContext } from "../../utils/GlobalState.js";
 
-function DrinkCard({ drink }) {
+function DrinkCard({ item }) {
 
-    const [show, setShow] = React.useState(false);
+    const [state, dispatch] = useStoreContext();
 
-    const handleToggle = () => setShow(!show);
+    const { cart } = state;
 
-    // const [state, dispatch] = useStoreContext();
-    // const {
-    //     image,
-    //     name,
-    //     _id,
-    //     price,
-    //     quantity
-    //   } = item;
 
-    //   const { cart } = state
-    // const addToCart = () => {
-    //     const itemInCart = cart.find((cartItem) => cartItem._id === _id)
-    //     if (itemInCart) {
-    //       dispatch({
-    //         type: UPDATE_CART_QUANTITY,
-    //         _id: _id,
-    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //       });
-    //       idbPromise('cart', 'put', {
-    //         ...itemInCart,
-    //         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-    //       });
-    //     } else {
-    //       dispatch({
-    //         type: ADD_TO_CART,
-    //         drink: { ...item, purchaseQuantity: 1 }
-    //       });
-    //       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
-    //     }
-    //   }
+    const addToCart = () => {
+        console.log(item)
+    dispatch({
+        type: ADD_TO_CART,
+        product: { ...item, purchaseQuantity: 1 }
+    });
+    console.log(cart);
+    };
     
     return (
         <Box maxW="sm" borderWidth="2px" bg="white.2" textAlign="center">
-            <Image src={drink.image} mt="4" />
+            <Image src={item.image} mt="4" />
             <Box p="4">
                 <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" isTruncated>
-                    {drink.name} &nbsp;
-                    $ {drink.price}
+                    {item.name} &nbsp;
+                    $ {item.price}
                 </Box>
                 <Box as="span" fontSize="sm">
-                    {drink.description}
+                    {item.description}
                 </Box>
                 <Button variantColor="primary"
                     borderRadius="8px"
                     py="3"
                     px="2"
                     lineHeight="1"
-                    size="md">
+                    size="md"
+                    onClick={addToCart}>
                     Add to Cart
                 </Button>
             <br></br>
@@ -67,10 +47,10 @@ function DrinkCard({ drink }) {
                     px="2"
                     mt="4"
                     lineHeight="1"
-                    size="md" onClick={handleToggle}>
+                    size="md">
                     Customize
                 </Button>
-                <Collapse mt={4} isOpen={show}>
+                <Collapse mt={4}>
                     <FormControl as="fieldset">
                         <FormLabel as="legend">Select Size</FormLabel>
                         <RadioGroup defaultValue="Small">

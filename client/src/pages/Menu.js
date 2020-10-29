@@ -15,8 +15,6 @@ const Menu = () => {
     const [state, dispatch] = useStoreContext();
     const { loading, data } = useQuery(QUERY_ALL_DRINKS);
 
- 
-
     useEffect(() => {
         if (data) {
             dispatch({
@@ -31,8 +29,8 @@ const Menu = () => {
         <ThemeProvider theme={theme}>
             <Box>
                 <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                    {state.drinks.map(drink => (
-                        <DrinkCard drink={drink} key={drink._id}/>
+                    {state.drinks.map(item => (
+                        <DrinkCard item={item} key={item._id}/>
                     ))}
                     {/* <DrinkCard/>
                     <DrinkCard/>
