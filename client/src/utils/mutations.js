@@ -23,8 +23,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_ORDER = gql`
-    mutation addOrder($drinks: [ID]!) {
-        addOrder(drinks: $drinks) {
+    mutation addOrder($drinks: [ID]!, $size: String!, $milk: String!, $flavor: String!) {
+        addOrder(drinks: $drinks, ) {
             purchaseDate
             drinks {
                 _id
@@ -34,7 +34,12 @@ export const ADD_ORDER = gql`
                 quantity
                 category {
                     name
-                  } 
+                  }
+                customize {
+                    size
+                    milk
+                    flavor
+                } 
             }
         }
     }
