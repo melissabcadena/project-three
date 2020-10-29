@@ -20,7 +20,7 @@ db.once('open', async () => {
             description: 'A deliciously simple drink, the Latte is espresso with steamed milk and a small layer of foam on top.',
             image: './images/latte.jpeg',
             category: categories[0]._id,
-            price: 5.00,
+            price: 4.75,
             quantity: 1
         },
         {
@@ -28,7 +28,7 @@ db.once('open', async () => {
             description: 'The Mocha is for those that need a little chocolate in their coffee.  It is espresso, chocolate syrup and steamed milk topped with whipped cream.',
             image: './images/mocha.jpeg',
             category: categories[0]._id,
-            price: 5.00,
+            price: 4.75,
             quantity: 1
         },
         {
@@ -36,7 +36,7 @@ db.once('open', async () => {
             description: 'The Americano is a no-frills coffee drink.  It is just espresso lightened with hot water.',
             image: './images/americano.jpeg',
             category: categories[0]._id,
-            price: 3.00,
+            price: 2.75,
             quantity: 1
         },
         {
@@ -44,7 +44,7 @@ db.once('open', async () => {
             description: 'The House Coffee is brewed from our own roasted “<br> for java” coffee beans and is our customer favorite!',
             image: './images/house-coffee.jpeg',
             category: categories[0]._id,
-            price: 2.50,
+            price: 2.25,
             quantity: 1
         },
         {
@@ -52,7 +52,7 @@ db.once('open', async () => {
             description: 'A Cappuccino is double is espresso with equal parts steamed milk and foam.',
             image: './images/cappuccino.jpeg',
             category: categories[0]._id,
-            price: 4.50,
+            price: 4.25,
             quantity: 1
         },
         {
@@ -60,7 +60,7 @@ db.once('open', async () => {
             description: 'Our Hot Chocolate is made with decadently rich chocolate and steamed milk with a small layer of foam on top.',
             image: './images/hot-chocolate.jpeg',
             category: categories[0]._id,
-            price: 4.50,
+            price: 4.25,
             quantity: 1
         },
         {
@@ -68,7 +68,7 @@ db.once('open', async () => {
             description: 'The Iced Latte is fresh espresso poured over ice cubes and milk.',
             image: './images/iced-latte.jpeg',
             category: categories[1]._id,
-            price: 5.00,
+            price: 4.75,
             quantity: 1
         },
         {
@@ -76,7 +76,7 @@ db.once('open', async () => {
             description: 'Our Iced Mocha is a blend of espresso, rich chocolate syrup, milk, ice and vanilla ice-cream.',
             image: './images/iced-mocha.jpeg',
             category: categories[1]._id,
-            price: 5.00,
+            price: 4.75,
             quantity: 1
         },
         {
@@ -84,7 +84,7 @@ db.once('open', async () => {
             description: 'Our Cold-Brewed Coffee is handcrafted in small batches daily, slow-steeped in cool water for 20 hours, without touching heat and finished with a splash of milk.',
             image: './images/cold-brewed.jpeg',
             category: categories[1]._id,
-            price: 2.50,
+            price: 2.25,
             quantity: 1
         },
         {
@@ -92,7 +92,7 @@ db.once('open', async () => {
             description: 'A Cappuccino on Ice is fresh espresso poured over ice cubes and milk topped with cold foam.',
             image: './images/iced-cappuccino.jpeg',
             category: categories[1]._id,
-            price: 4.50,
+            price: 4.25,
             quantity: 1
         },
     //     {

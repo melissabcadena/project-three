@@ -52,17 +52,8 @@ function DrinkCard({ drink }) {
                 <Box as="span" fontSize="sm">
                     {drink.description}
                 </Box>
-                <Box m="4">
-                <Button variantColor="primary"
-                    borderRadius="8px"
-                    py="3"
-                    px="2"
-                    lineHeight="1"
-                    size="md">
-                    Add to Cart
-                </Button>
-                </Box>
-          
+                
+            <br></br>
                 <Button variantColor="primary"
                     borderRadius="8px"
                     py="3"
@@ -87,7 +78,17 @@ function DrinkCard({ drink }) {
                             <Radio value="Milk">Milk</Radio>
                         </RadioGroup>
                     </FormControl>
+                    <br></br>
+                <Button variantColor="primary"
+                    borderRadius="8px"
+                    py="3"
+                    px="2"
+                    lineHeight="1"
+                    size="md">
+                    Add to Cart
+                </Button>
                 </Collapse>
+                
             </Box>
 
         </Box>
