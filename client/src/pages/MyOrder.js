@@ -7,8 +7,8 @@ import CartItem from '../components/CartItem';
 import { useStoreContext } from "../utils/GlobalState.js";
 
 const MyOrder = () => {
-    const [state] = useStoreContext();
-
+    const [state, dispatch] = useStoreContext();
+    console.log(state);
     function calculateTotal() {
         let sum = 0;
         state.cart.forEach(item => {

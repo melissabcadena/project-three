@@ -14,7 +14,7 @@ import { UPDATE_DRINKS } from "../utils/actions";
 const Menu = () => {
     const [state, dispatch] = useStoreContext();
     const { loading, data } = useQuery(QUERY_ALL_DRINKS);
-
+console.log("state", state);
     useEffect(() => {
         if (data) {
             dispatch({

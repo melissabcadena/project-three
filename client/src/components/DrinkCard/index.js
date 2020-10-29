@@ -15,7 +15,7 @@ function DrinkCard({ item }) {
         console.log(item)
     dispatch({
         type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 }
+        item: { ...item, purchaseQuantity: 1 }
     });
     console.log(cart);
     };
@@ -31,7 +31,7 @@ function DrinkCard({ item }) {
                 <Box as="span" fontSize="sm">
                     {item.description}
                 </Box>
-                <Button variantColor="primary"
+                <Button
                     borderRadius="8px"
                     py="3"
                     px="2"
@@ -41,7 +41,7 @@ function DrinkCard({ item }) {
                     Add to Cart
                 </Button>
             <br></br>
-                <Button variantColor="primary"
+                <Button
                     borderRadius="8px"
                     py="3"
                     px="2"

@@ -69,7 +69,6 @@ const Signup = () => {
               </FormControl>
           
               <Button type="submit" size="xl" 
-                variantColor="primary"
                 borderRadius="8px"
                 py="4"
                 px="4"
