@@ -45,7 +45,6 @@ const Home = () => {
             </Heading>
             <Link href="/menu">
                 <Button
-                variantColor="primary"
                 borderRadius="8px"
                 py="4"
                 px="4"
