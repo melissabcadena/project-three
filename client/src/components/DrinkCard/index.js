@@ -8,6 +8,9 @@ function DrinkCard({ item }) {
 
     const [show, setShow] = React.useState(false);
 
+    const [valuePrice, setValuePrice] = React.useState("Small");
+    const [valueMilk, setValueMilk] = React.useState("No Milk");
+
     const handleToggle = () => setShow(!show);
 
     const [state, dispatch] = useStoreContext();
@@ -15,16 +18,17 @@ function DrinkCard({ item }) {
     const { cart } = state;
 
     const {
-        image,
-        name,
+        // image,
+        // name,
         _id,
-        price,
-        quantity
+        // price,
+        // quantity
       } = item;
 
     const addToCart = () => {
         // find the cart item w/ a matching id
         const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+        
         // if there is a match, we will update quantity
         if(itemInCart) {
             dispatch({
@@ -69,30 +73,32 @@ function DrinkCard({ item }) {
                     Customize
                 </Button>
                 <Collapse mt={4} isOpen={show}>
-                    <FormControl as="fieldset">
+                    <FormControl as="fieldset" onSubmit={addToCart}>
                         <FormLabel as="legend">Select Size</FormLabel>
-                        <RadioGroup defaultValue="Small">
-                            <Radio value="Small">Small</Radio>
-                            <Radio value="Large">Large (+ $1.00)</Radio>
+                        <RadioGroup onChange={e => setValuePrice(e.target.value)} value={valuePrice}>
+                            <Radio value="Small">Small $ {item.price}</Radio>
+                            <Radio value="Large">Large $ {item.large}</Radio>
                         </RadioGroup>
-                    </FormControl>
-                    <FormControl as="fieldset">
+                    {/* </FormControl>
+                    <FormControl as="fieldset"> */}
                         <FormLabel as="legend">Add Milk</FormLabel>
-                        <RadioGroup defaultValue="No Milk">
+                        <RadioGroup onChange={e => setValueMilk(e.target.value)} value={valueMilk}>
                             <Radio value="No Milk">No Milk</Radio>
-                            <Radio value="Milk">Milk</Radio>
+                            <Radio value="Milk" >Milk</Radio>
                         </RadioGroup>
-                    </FormControl>
-                    <br></br>
+
+                        <br></br>
                     <Button
                     borderRadius="8px"
                     py="3"
                     px="2"
                     lineHeight="1"
                     size="md"
-                    onClick={addToCart}>
+                    type="submit">
                     Add to Cart
                 </Button>
+                    </FormControl>
+
                 </Collapse>
                 
             </Box>

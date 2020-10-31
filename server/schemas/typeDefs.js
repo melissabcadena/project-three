@@ -14,6 +14,7 @@ const typeDefs = gql`
     image: String
     quantity: Int
     price: Float
+    large: Float
     category: Category
   }
 

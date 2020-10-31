@@ -17,6 +17,7 @@ export const QUERY_DRINKS = gql`
             name
             description
             price
+            large
             quantity
             image
             category {
@@ -41,6 +42,7 @@ export const QUERY_ALL_DRINKS = gql`
       name
       description
       price
+      large
       quantity
       image
       category {
@@ -72,6 +74,7 @@ export const QUERY_USER = gql`
         name
         description
         price
+        large
         quantity
         image
       }

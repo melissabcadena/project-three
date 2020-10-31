@@ -1,16 +1,40 @@
 const db = require('./connection');
-const { User, Drink, Category } = require('../models');
+const { User, Drink, Category, Customize } = require('../models');
 
 db.once('open', async () => {
     await Category.deleteMany();
 
     const categories = await Category.insertMany([
         { name: 'Hot Drinks' },
-        { name: 'Cold Drinks' },
-        // { name: 'Tasty Treats' },
+        { name: 'Cold Drinks' }
     ]);
 
     console.log('categories seeded');
+
+    // Customization feature
+    // await Customize.deleteMany();
+
+    // const customizations = await Customize.insertMany([
+    //     {
+    //         option: 'Large',
+    //         price:  1.00
+    //     },
+    //     {
+    //         option: 'Small',
+    //         price: 0.00
+    //     },
+    //     {
+    //         option: 'Milk',
+    //         price: 1.00
+    //     },
+    //     {
+    //         option: 'No Milk',
+    //         price: 0.00
+    //     }  
+
+    // ]);
+
+    // console.log('customizations seeded');
 
     await Drink.deleteMany();
 
@@ -21,6 +45,7 @@ db.once('open', async () => {
             image: './images/latte.jpeg',
             category: categories[0]._id,
             price: 4.75,
+            large: 5.75,
             quantity: 1
         },
         {
@@ -29,112 +54,73 @@ db.once('open', async () => {
             image: './images/mocha.jpeg',
             category: categories[0]._id,
             price: 4.75,
+            large: 5.75,
             quantity: 1
         },
-        {
-            name: 'Americano',
-            description: 'The Americano is a no-frills coffee drink.  It is just espresso lightened with hot water.',
-            image: './images/americano.jpeg',
-            category: categories[0]._id,
-            price: 2.75,
-            quantity: 1
-        },
-        {
-            name: 'House Coffee',
-            description: 'The House Coffee is brewed from our own roasted “<br> for java” coffee beans and is our customer favorite!',
-            image: './images/house-coffee.jpeg',
-            category: categories[0]._id,
-            price: 2.25,
-            quantity: 1
-        },
-        {
-            name: 'Cappuccino',
-            description: 'A Cappuccino is double is espresso with equal parts steamed milk and foam.',
-            image: './images/cappuccino.jpeg',
-            category: categories[0]._id,
-            price: 4.25,
-            quantity: 1
-        },
-        {
-            name: 'Hot Chocolate',
-            description: 'Our Hot Chocolate is made with decadently rich chocolate and steamed milk with a small layer of foam on top.',
-            image: './images/hot-chocolate.jpeg',
-            category: categories[0]._id,
-            price: 4.25,
-            quantity: 1
-        },
-        {
-            name: 'Iced Latte',
-            description: 'The Iced Latte is fresh espresso poured over ice cubes and milk.',
-            image: './images/iced-latte.jpeg',
-            category: categories[1]._id,
-            price: 4.75,
-            quantity: 1
-        },
-        {
-            name: 'Iced Mocha',
-            description: 'Our Iced Mocha is a blend of espresso, rich chocolate syrup, milk, ice and vanilla ice-cream.',
-            image: './images/iced-mocha.jpeg',
-            category: categories[1]._id,
-            price: 4.75,
-            quantity: 1
-        },
-        {
-            name: 'Cold-Brewed Coffee',
-            description: 'Our Cold-Brewed Coffee is handcrafted in small batches daily, slow-steeped in cool water for 20 hours, without touching heat and finished with a splash of milk.',
-            image: './images/cold-brewed.jpeg',
-            category: categories[1]._id,
-            price: 2.25,
-            quantity: 1
-        },
-        {
-            name: 'Cappuccino on Ice',
-            description: 'A Cappuccino on Ice is fresh espresso poured over ice cubes and milk topped with cold foam.',
-            image: './images/iced-cappuccino.jpeg',
-            category: categories[1]._id,
-            price: 4.25,
-            quantity: 1
-        },
-    //     {
-    //         name: 'Blue Berry Muffin',
-    //         description: '',
-    //         image: 'bb-muffin.jpeg',
-    //         category: categories[2]._id,
-    //         price: 2.00,
-    //         quantity: 1
-    //     },
-    //     {
-    //         name: 'Biscotti',
-    //         description: '',
-    //         image: 'biscotti.jpeg',
-    //         category: categories[2]._id,
-    //         price: 2.00,
-    //         quantity: 1
-    //     },
-    //     {
-    //         name: 'Croissant',
-    //         description: '',
-    //         image: 'croissants.jpeg',
-    //         category: categories[2]._id,
-    //         price: 2.00,
-    //         quantity: 1
-    //     },
-    //     {
-    //         name: 'Chocolate Chunk Cookie',
-    //         description: '',
-    //         image: 'choc-chunk.jpeg',
-    //         category: categories[2]._id,
-    //         price: 2.00,
-    //         quantity: 1
-    //     },
-    //     {
-    //         name: 'Chocolate Muffin',
-    //         description: '',
-    //         image: 'choc-muffin.jpeg',
-    //         category: categories[2]._id,
-    //         price: 2.00,
-    //         quantity: 1
-    //     },
+        // {
+        //     name: 'Americano',
+        //     description: 'The Americano is a no-frills coffee drink.  It is just espresso lightened with hot water.',
+        //     image: './images/americano.jpeg',
+        //     category: categories[0]._id,
+        //     price: 2.75,
+        //     quantity: 1
+        // },
+        // {
+        //     name: 'House Coffee',
+        //     description: 'The House Coffee is brewed from our own roasted “<br> for java” coffee beans and is our customer favorite!',
+        //     image: './images/house-coffee.jpeg',
+        //     category: categories[0]._id,
+        //     price: 2.25,
+        //     quantity: 1
+        // },
+        // {
+        //     name: 'Cappuccino',
+        //     description: 'A Cappuccino is double is espresso with equal parts steamed milk and foam.',
+        //     image: './images/cappuccino.jpeg',
+        //     category: categories[0]._id,
+        //     price: 4.25,
+        //     quantity: 1
+        // },
+        // {
+        //     name: 'Hot Chocolate',
+        //     description: 'Our Hot Chocolate is made with decadently rich chocolate and steamed milk with a small layer of foam on top.',
+        //     image: './images/hot-chocolate.jpeg',
+        //     category: categories[0]._id,
+        //     price: 4.25,
+        //     quantity: 1
+        // },
+        // {
+        //     name: 'Iced Latte',
+        //     description: 'The Iced Latte is fresh espresso poured over ice cubes and milk.',
+        //     image: './images/iced-latte.jpeg',
+        //     category: categories[1]._id,
+        //     price: 4.75,
+        //     quantity: 1
+        // },
+        // {
+        //     name: 'Iced Mocha',
+        //     description: 'Our Iced Mocha is a blend of espresso, rich chocolate syrup, milk, ice and vanilla ice-cream.',
+        //     image: './images/iced-mocha.jpeg',
+        //     category: categories[1]._id,
+        //     price: 4.75,
+        //     quantity: 1
+        // },
+        // {
+        //     name: 'Cold-Brewed Coffee',
+        //     description: 'Our Cold-Brewed Coffee is handcrafted in small batches daily, slow-steeped in cool water for 20 hours, without touching heat and finished with a splash of milk.',
+        //     image: './images/cold-brewed.jpeg',
+        //     category: categories[1]._id,
+        //     price: 2.25,
+        //     quantity: 1
+        // },
+        // {
+        //     name: 'Cappuccino on Ice',
+        //     description: 'A Cappuccino on Ice is fresh espresso poured over ice cubes and milk topped with cold foam.',
+        //     image: './images/iced-cappuccino.jpeg',
+        //     category: categories[1]._id,
+        //     price: 4.25,
+        //     quantity: 1
+        // },
     ]);
 
     console.log('drinks seeded');
@@ -148,7 +134,8 @@ db.once('open', async () => {
         password: 'password12345',
         orders: [
             {
-                drinks: [drinks[0]._id, drinks[0]._id, drinks[1]._id]
+                drinks: [drinks[0]._id, drinks[0]._id, drinks[1]._id],
+                // customizations: [customizations._id]
             }
         ]
     });
