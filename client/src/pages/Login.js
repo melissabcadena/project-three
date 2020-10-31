@@ -50,12 +50,12 @@ function LoginStrap(props) {
               <Form onSubmit={handleFormSubmit} action='submit'>
                   <Form.Group controlId="formEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" isRequired onChange={handleChange}/>
+                    <Form.Control type="email" name="email" isRequired onChange={handleChange}/>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" isRequired onChange={handleChange}/>
+                    <Form.Control type="password" name="password" isRequired onChange={handleChange}/>
                   </Form.Group>
                   {
                     error ? <div>
@@ -63,7 +63,7 @@ function LoginStrap(props) {
                     </div> : null
                   }   
                   <Button variant="dark" type="submit" block>
-                    Signup
+                    Login
                   </Button>
               </Form>
             </Card.Body>

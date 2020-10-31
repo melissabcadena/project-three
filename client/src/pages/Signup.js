@@ -54,22 +54,22 @@ function SignupStrap(props) {
               <Form onSubmit={handleFormSubmit} action='submit'>
                   <Form.Group controlId="formFirst">
                       <Form.Label>First Name</Form.Label>
-                      <Form.Control type="firstname" isRequired onChange={handleChange}/>
+                      <Form.Control type="firstname" name="firstName" isRequired onChange={handleChange}/>
                   </Form.Group>
 
                   <Form.Group controlId="formLast">
                       <Form.Label>Last Name</Form.Label>
-                      <Form.Control type="lastname" isRequired onChange={handleChange}/>
+                      <Form.Control type="lastname" name="lastName" isRequired onChange={handleChange}/>
                   </Form.Group>
 
                   <Form.Group controlId="formEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" isRequired onChange={handleChange}/>
+                    <Form.Control type="email" name="email" isRequired onChange={handleChange}/>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" isRequired onChange={handleChange}/>
+                    <Form.Control type="password" name="password" isRequired onChange={handleChange}/>
                   </Form.Group>
 
                   <Button variant="dark" type="submit" block>

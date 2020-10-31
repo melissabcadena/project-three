@@ -20,8 +20,8 @@ function NavStrap(props) {
           <Nav className="mr-auto">
             <Nav.Link as={Link} to="/menu">Menu</Nav.Link>
             <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-            <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
-            <Nav.Link as={Link} to="/">Logout</Nav.Link>
+            <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
