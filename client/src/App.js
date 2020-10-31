@@ -9,15 +9,15 @@ import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { StoreProvider } from './utils/GlobalState';
 
-import Home from './pages/Home';
+import HomeStrap from './pages/Home';
 import Menu from './pages/Menu';
 import MyOrder from './pages/MyOrder';
 import History from './pages/History';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+import SignupStrap from './pages/Signup';
+import LoginStrap from './pages/Login';
 
 // import Nav from './components/Nav';
-import Footer from './components/Footer'
+import FooterStrap from './components/Footer'
 
 import NavStrap from './components/Nav';
 
@@ -42,14 +42,14 @@ function App() {
             {/* <ThemeProvider theme={customTheme}> */}
               <NavStrap />
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={HomeStrap} />
                 <Route exact path="/menu" component={Menu} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/login" component={LoginStrap} />
+                <Route exact path="/signup" component={SignupStrap} />
                 <Route exact path="/order" component={MyOrder} />
                 <Route exact path="/profile" component={History} />
               </Switch>
-              <Footer />
+              <FooterStrap />
             {/* </ThemeProvider> */}
           </StoreProvider>
         </div>
