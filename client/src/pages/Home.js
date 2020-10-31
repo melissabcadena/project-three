@@ -9,22 +9,23 @@ import {
     Button,
     Container,
     Row,
-    Col
-} from 'reactstrap';
+    Col,
+    Image
+} from 'react-bootstrap';
 
 
 function HomeStrap(props){
 
     return(
         <Container fluid>
-            <Row className='align-items-center'>
-                <Col>
-                    <Jumbotron>
-                        <img src="./images/cover.jpg" alt="coffee banner"></img>
+            <Row>
+                <Col fluid className='justify-content-md-center'> 
+                    <Jumbotron fluid className='align-items-center'>
+                        <Image src="./images/cover.jpg" alt="coffee banner" fluid></Image>
                         <h1 className='text-center'>Sleepy? Tired? Bad day?</h1>
                         <h1 className='text-center'>{"Why not take a <br> for Java?"}</h1>
                         <h2 className='text-center'>Order from our delicious menu</h2>
-                        <Button color='dark' href='/menu'>
+                        <Button variant='secondary' href='/menu'>
                             Order Now
                         </Button>
                     </Jumbotron>
