@@ -15,11 +15,11 @@ function DrinkCard({ item }) {
     const { cart } = state;
 
     const {
-        image,
-        name,
         _id,
-        price,
-        quantity
+        // image,
+        // name,
+        // price,
+        // quantity
     } = item;
 
     const addToCart = () => {

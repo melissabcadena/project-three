@@ -6,7 +6,7 @@ import { ADD_USER } from "../utils/mutations";
 import { ThemeProvider, Input, InputGroup, Stack, Button, FormControl, Flex, Box, Heading, FormLabel } from '@chakra-ui/core';
 import theme from '../theme/theme';
 
-const Signup = () => {
+function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
