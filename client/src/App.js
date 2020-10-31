@@ -1,8 +1,8 @@
 import React from 'react';
 
 // UI
-import { ThemeProvider } from '@chakra-ui/core';
-import customTheme  from '../src/theme/theme';
+// import { ThemeProvider } from '@chakra-ui/core';
+// import customTheme  from '../src/theme/theme';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {ApolloProvider} from '@apollo/react-hooks';
@@ -16,8 +16,10 @@ import History from './pages/History';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
-import Nav from './components/Nav';
+// import Nav from './components/Nav';
 import Footer from './components/Footer'
+
+import NavStrap from './components/Nav';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -28,7 +30,7 @@ const client = new ApolloClient({
       }
     })
   },
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 })
 
 function App() {
@@ -37,8 +39,8 @@ function App() {
       <Router>
         <div>
           <StoreProvider>
-            <ThemeProvider theme={customTheme}>
-              <Nav />
+            {/* <ThemeProvider theme={customTheme}> */}
+              <NavStrap />
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/menu" component={Menu} />
@@ -48,7 +50,7 @@ function App() {
                 <Route exact path="/profile" component={History} />
               </Switch>
               <Footer />
-            </ThemeProvider>
+            {/* </ThemeProvider> */}
           </StoreProvider>
         </div>
       </Router>
