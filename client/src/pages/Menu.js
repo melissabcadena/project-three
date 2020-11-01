@@ -38,7 +38,7 @@ console.log("state", state);
     return (
         <ThemeProvider theme={theme}>
             <Flex wrap="wrap" align='center' justify='center'>
-                <Box>
+                <Box p={5}>
                     <Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]} gap={6}>
                         {state.drinks.map(item => (
                             <DrinkCard item={item} key={item._id}/>
