@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup, Flex } from '@chakra-ui/core';
+// import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup, Flex } from '@chakra-ui/core';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Form, FormGroup, Label, Input, Collapse, Card, CardTitle, CardText, CardBody, CardImg } from 'reactstrap';
 
 function DrinkCard({ item }) {
 
@@ -15,11 +17,11 @@ function DrinkCard({ item }) {
     const { cart } = state;
 
     const {
-        image,
-        name,
+        // image,
+        // name,
         _id,
-        price,
-        quantity
+        // price,
+        // quantity
     } = item;
 
     const addToCart = () => {
@@ -47,67 +49,65 @@ function DrinkCard({ item }) {
     };
 
     return (
-        <Flex flexWrap="wrap" alignItems="center" justifyContent="center" maxW="500px" m="10">
-        <Box flexShrink="0" maxW="lg" bg="white.2" textAlign="center" flexBasis={['auto', '80%']}
-        
-         width={[
-            "100%", // base
-            "50%", // 480px upwards
-            "25%", // 768px upwards
-            "15%", // 992px upwards
-          ]}>
-            <Image src={item.image} mt="10%" width={['auto', '80%']} />
-            <Box p="4">
-                <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" >
-                    {item.name} &nbsp;
+        <div flexWrap="wrap" alignItems="center" justifyContent="center" maxW="500px" m="10">
+            <Card flexShrink="0" maxW="lg" bg="white.2" textAlign="center" flexBasis={['auto', '80%']}
+
+                width={[
+                    "100%", // base
+                    "50%", // 480px upwards
+                    "25%", // 768px upwards
+                    "15%", // 992px upwards
+                ]}>
+                <CardImg src={item.image} mt="10%" width={['auto', '80%']} />
+                <CardBody p="4">
+                    <CardTitle mt="1" fontWeight="semibold" as="h3" lineHeight="tight" >
+                        {item.name} &nbsp;
                     ${item.price}
-                </Box>
-                <Box as="span" fontSize="sm">
-                    {item.description}
-                </Box>
-
-                <br></br>
-                <Button onClick={handleToggle}
-                    borderRadius="8px"
-                    py="3"
-                    px="2"
-                    mt="4"
-                    lineHeight="1"
-                    size="md">
-                    Customize
-                </Button>
-                <Collapse mt={4} isOpen={show}>
-                    <FormControl as="fieldset">
-                        <FormLabel as="legend">Select Size</FormLabel>
-                        <RadioGroup defaultValue="Small">
-                            <Radio value="Small">Small</Radio>
-                            <Radio value="Large">Large (+ $1.00)</Radio>
-                        </RadioGroup>
-                    </FormControl>
-                    <FormControl as="fieldset">
-                        <FormLabel as="legend">Add Milk</FormLabel>
-                        <RadioGroup defaultValue="No Milk">
-                            <Radio value="No Milk">No Milk</Radio>
-                            <Radio value="Milk">Milk</Radio>
-                        </RadioGroup>
-                    </FormControl>
-
-                </Collapse>
-                <Button
-                    borderRadius="8px"
-                    py="3"
-                    px="2"
-                    mt="2"
-                    lineHeight="1"
-                    size="md"
-                    onClick={addToCart}>
-                    Add to Cart
-                </Button>
-
-            </Box>
-
-        </Box>
-        </Flex>
+                    </CardTitle>
+                    <CardText as="span" fontSize="sm">
+                        {item.description}
+                    </CardText>
+                    <br></br>
+                    <Button onClick={handleToggle}
+                        borderRadius="8px"
+                        py="3"
+                        px="2"
+                        mt="4"
+                        lineHeight="1"
+                        size="md">
+                        Customize
+                    </Button>
+                    <Collapse mt={4} isOpen={show}>
+                        <Form>
+                            <FormGroup>
+                                <Label for="exampleSelect">Select Size</Label>
+                                <Input type="select" name="select" id="exampleSelect">
+                                    <option>Small</option>
+                                    <option>Large</option>
+                                </Input>
+                                <Label for="exampleSelect">Add Milk</Label>
+                                <Input type="select" name="select" id="exampleSelect">
+                                    <option>No Milk</option>
+                                    <option>2% Milk</option>
+                                    <option>Oat Milk</option>
+                                    <option>Almond Milk</option>
+                                </Input>
+                            </FormGroup>
+                            <Button
+                                borderRadius="8px"
+                                py="3"
+                                px="2"
+                                mt="2"
+                                lineHeight="1"
+                                size="md"
+                                onClick={addToCart}>
+                                Add to Cart
+                            </Button>
+                        </Form>
+                    </Collapse>
+                </CardBody>
+            </Card>
+        </div>
     );
 }
 
