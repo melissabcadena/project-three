@@ -53,7 +53,7 @@ function DrinkCard({ item }) {
     };
 
     return (
-        <div flexWrap="wrap" alignItems="center" justifyContent="center" maxW="500px" m="10">
+        <div flexWrap="wrap" alignItems="center" maxW="500px" m="10">
             <Card flexShrink="0" maxW="lg" bg="white.2" textAlign="center" flexBasis={['auto', '80%']}
 
                 width={[

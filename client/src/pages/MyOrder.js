@@ -67,27 +67,24 @@ const MyOrder = () => {
             <div pl={5}>
                 <h1 as='h1'>Cart</h1>
             </div>
-           
+                          
+            <div>
+              {state ? state.cart.map(item=>(
+                <CartItem key={item._id} item={item} />
+              )): (<div> You haven't added anything to the cart yet! </div>)}
+
+            </div>
                 
-                    <div>
-                      {state ? state.cart.map(item=>(
-                        <CartItem key={item._id} item={item} />
-                      )): (<div> loading </div>)}
-                    {/* {state.cart.map(item => (
-                        <CartItem key={item._id} item={item} />
-                    ))} */}
-                    </div>
-                
-                    <div pl={3}>
-                        <h1 as='h1'>Total</h1>
-                        <h1 as='h2'>${calculateTotal()}</h1>
-                        { Auth.loggedIn() ? 
-                        <Button width="full" type="submit" size="xl" py="4" px="4" borderRadius="8px" onClick={submitCheckout}>Checkout
-                        </Button> 
-                        :       
-                        <span>Log in to check out!</span>
-                        }
-                    </div>
+            <div pl={3}>
+                <h1 as='h1'>Total</h1>
+                <h1 as='h2'>${calculateTotal()}</h1>
+                { Auth.loggedIn() ? 
+                <Button width="full" type="submit" size="xl" py="4" px="4" borderRadius="8px" onClick={submitCheckout}>Checkout
+                </Button> 
+                :       
+                <span>Log in to check out!</span>
+                }
+            </div>
             
             </div>
         );
