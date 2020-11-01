@@ -12,15 +12,15 @@ function DrinkCard({ item }) {
 
     const [state, dispatch] = useStoreContext();
 
-    const { cart } = state;
-
     const {
-        _id,
         // image,
         // name,
+        _id,
         // price,
         // quantity
     } = item;
+
+    const { cart } = state;
 
     const addToCart = () => {
         // find the cart item w/ a matching id

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useMutation } from '@apollo/react-hooks';
-import Jumbotron from "../components/Jumbotron";
 import { ADD_ORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
+import { ThemeProvider, Box, Heading, Flex } from '@chakra-ui/core';
+import theme from '../theme/theme';
 
 function Success() {
     const [addOrder] = useMutation(ADD_ORDER);
@@ -31,12 +32,15 @@ function Success() {
     return (
 
         <ThemeProvider theme={theme}>
+      <Flex width="full" textAlign="center" justifyContent="center" minHeight='100vh'>
+      <Box pl={3}>
             <Box pl={3}>
                 <Heading as='h1'>Your order has been submitted!</Heading>
                 <Heading as='h2'>Thank you</Heading>
             </Box>
-            
-        </ThemeProvider>
+            </Box>
+      </Flex>
+    </ThemeProvider>
        
     );
 };

@@ -15,6 +15,9 @@ import MyOrder from './pages/MyOrder';
 import History from './pages/History';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import NoMatch from "./pages/NoMatch";
+import Success from "./pages/Success";
+
 
 import Nav from './components/Nav';
 import Footer from './components/Footer'
@@ -44,8 +47,10 @@ function App() {
                 <Route exact path="/menu" component={Menu} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
+                <Route exact path="/success" component={Success} />
                 <Route exact path="/order" component={MyOrder} />
                 <Route exact path="/profile" component={History} />
+                <Route component={NoMatch} />
               </Switch>
               <Footer />
             </ThemeProvider>
