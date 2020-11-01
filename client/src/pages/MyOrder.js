@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { ThemeProvider, 
-    Stack, Flex, Box, Heading, Button } from '@chakra-ui/core';
-import theme  from '../theme/theme';
+// import { ThemeProvider, 
+//     Stack, Flex, Box, Heading, Button } from '@chakra-ui/core';
+// import theme  from '../theme/theme';
 import Auth from "../utils/auth";
 import CartItem from '../components/CartItem';
 import { useStoreContext } from "../utils/GlobalState.js";
@@ -10,7 +10,13 @@ import { idbPromise } from "../utils/helpers";
 import { loadStripe } from "@stripe/stripe-js";
 import { QUERY_CHECKOUT } from "../utils/queries"
 import { useLazyQuery } from '@apollo/react-hooks';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
+
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+
 
 const MyOrder = () => {
     const [state, dispatch] = useStoreContext();
@@ -57,30 +63,33 @@ const MyOrder = () => {
       }
 
       return (
-        <ThemeProvider theme={theme}>
-            <Box pl={5}>
-                <Heading as='h1'>Cart</Heading>
-            </Box>
-            <Flex justify="center">
+        <div>
+            <div pl={5}>
+                <h1 as='h1'>Cart</h1>
+            </div>
+           
                 
-                    <Stack>
-                    {state.cart.map(item => (
+                    <div>
+                      {state ? state.cart.map(item=>(
                         <CartItem key={item._id} item={item} />
-                    ))}
-                    </Stack>
+                      )): (<div> loading </div>)}
+                    {/* {state.cart.map(item => (
+                        <CartItem key={item._id} item={item} />
+                    ))} */}
+                    </div>
                 
-                    <Box pl={3}>
-                        <Heading as='h1'>Total</Heading>
-                        <Heading as='h2'>${calculateTotal()}</Heading>
+                    <div pl={3}>
+                        <h1 as='h1'>Total</h1>
+                        <h1 as='h2'>${calculateTotal()}</h1>
                         { Auth.loggedIn() ? 
                         <Button width="full" type="submit" size="xl" py="4" px="4" borderRadius="8px" onClick={submitCheckout}>Checkout
                         </Button> 
                         :       
                         <span>Log in to check out!</span>
                         }
-                    </Box>
-            </Flex>
-            </ThemeProvider>
+                    </div>
+            
+            </div>
         );
 };
 

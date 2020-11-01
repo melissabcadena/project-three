@@ -79,7 +79,7 @@ const resolvers = {
       // get user for order history
       user: async (parent, args, context) => {
         if(context.user) {
-          const user = await (await User.findById(context.user_id)).populated({
+          const user = await (await User.findById(context.user._id)).populated({
             path: 'order.drinks',
             populate: 'category'
           });
