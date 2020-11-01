@@ -9,7 +9,7 @@ import { ThemeProvider, Box, Grid} from '@chakra-ui/core';
 import theme from '../../theme/theme';
 //import spinner from "../public/images/spinner.gif"
 
-function DrinkList() {
+function DrinkList({drinks}) {
   const [state, dispatch] = useStoreContext();
 
   const { currentCategory } = state;
@@ -53,11 +53,12 @@ function DrinkList() {
             {filterDrinks().map(drink => (
                 <DrinkCard
                   key= {drink._id}
-                  _id={drink._id}
-                  image={drink.image}
-                  name={drink.name}
-                  price={drink.price}
-                  quantity={drink.quantity}
+                  item={drink}
+                  // _id={drink._id}
+                  // image={drink.image}
+                  // name={drink.name}
+                  // price={drink.price}
+                  // quantity={drink.quantity}
                 />
             ))}
         </div>

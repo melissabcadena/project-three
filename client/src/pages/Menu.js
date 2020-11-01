@@ -8,7 +8,7 @@ import DrinkCard from '../components/DrinkCard';
 import { QUERY_ALL_DRINKS } from '../utils/queries';
 import { useStoreContext } from "../utils/GlobalState";
 import { UPDATE_DRINKS } from "../utils/actions";
-//import DrinkList from "../components/DrinkList";
+import DrinkList from "../components/DrinkList";
 import { idbPromise } from "../utils/helpers";
 
 const Menu = () => {
@@ -41,13 +41,13 @@ console.log("state", state);
                 
             <Box>
             <CategoryMenu />
-            {/* <DrinkList /> */}
-                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+            <DrinkList drinks={state.drinks}/>
+                {/* <Grid templateColumns="repeat(3, 1fr)" gap={6}>
                     {state.drinks.map(item => (
                         <DrinkCard item={item} key={item._id}/>
                     ))}
                   
-                </Grid>
+                </Grid> */}
             </Box>
             
         </ThemeProvider>

@@ -11,7 +11,8 @@ function DrinkCard({ item }) {
     const handleToggle = () => setShow(!show);
 
     const [state, dispatch] = useStoreContext();
-
+    console.log("****")
+    console.log(item)
     const {
         // image,
         // name,
@@ -39,11 +40,11 @@ function DrinkCard({ item }) {
         } else {
             dispatch({
                 type: ADD_TO_CART,
-                item: { ...item, purchaseQuantity: 1 }
+                drink: { ...item, purchaseQuantity: 1 }
             });
             idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
         }
-        console.log(cart);
+        
     };
 
     return (

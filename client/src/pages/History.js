@@ -18,10 +18,11 @@ function OrderList({ name, price, ...rest }) {
 function History() {
     const { data } = useQuery(QUERY_USER);
     let user;
-
+    console.log(data)
     if (data) {
         user = data.user;
     }
+
 
     return (
         <ThemeProvider theme={theme}>
@@ -36,12 +37,12 @@ function History() {
                         {user.orders.map((order) => (
                             <Flex key={order._id}>
                                 <h3>{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}</h3>
-                                <Stack className="flex-row">
+                                <Stack>
 
                                     {order.drinks.map(({ _id, image, name, price }, index) => (
-                                        <Box key={index} className="card px-1 py-1">
-                                            <Link to={`/drinks/${_id}`}>
-                                                <Image src={`/images/${image}`} alt={name} mt="10%" width={['auto', '80%']} />
+                                        <Box key={index}>
+                                            <Link to={`/menu}`}>
+                                                <Image src={`${image}`} alt={name} mt="10%" width={['auto', '80%']} />
                                                 <Box mt="1" fontWeight="semibold" as="h3" lineHeight="tight" >
                                                     {name}
                                                     <br></br>
