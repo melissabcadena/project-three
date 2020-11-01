@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
-import { ThemeProvider, Box, Grid} from '@chakra-ui/core';
+import { ThemeProvider, Flex, Box, Grid} from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
 import DrinkCard from '../components/DrinkCard';
@@ -37,16 +37,19 @@ console.log("state", state);
 
     return (
         <ThemeProvider theme={theme}>
-            <Box>
-                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                    {state.drinks.map(item => (
-                        <DrinkCard item={item} key={item._id}/>
-                    ))}
-                    {/* <DrinkCard/>
-                    <DrinkCard/>
-                    <DrinkCard/> */}
-                </Grid>
-            </Box>
+            <Flex wrap="wrap" align='center' justify='center'>
+                <Box>
+                    <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                        {state.drinks.map(item => (
+                            <DrinkCard item={item} key={item._id}/>
+                        ))}
+                        {/* <DrinkCard/>
+                        <DrinkCard/>
+                        <DrinkCard/> */}
+                    </Grid>
+                </Box>
+            </Flex>
+            
             
 
         </ThemeProvider>
