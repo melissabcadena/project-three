@@ -79,12 +79,13 @@ const resolvers = {
       // get user for order history
       user: async (parent, args, context) => {
         if(context.user) {
-          const user = await (await User.findById(context.user._id)).populated({
-            path: 'order.drinks',
+          const user =  await User.findById(context.user._id).populate({
+            path: 'orders.drinks',
             populate: 'category'
           });
           // what is this for? how to we show the info we want for order history page?
           user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+          return user;
         }
       }
     },
