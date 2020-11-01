@@ -4,13 +4,17 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, FormGroup, Label, Input, Collapse, Card, CardTitle, CardText, CardBody, CardImg } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Collapse, Card, CardTitle, CardText, CardBody, CardImg, UncontrolledPopover, PopoverHeader } from 'reactstrap';
+
 
 function DrinkCard({ item }) {
 
     const [show, setShow] = React.useState(false);
 
     const handleToggle = () => setShow(!show);
+    // const [popoverOpen, setPopoverOpen] = useState(false);
+
+    // const toggle = () => setPopoverOpen(!popoverOpen);
 
     const [state, dispatch] = useStoreContext();
 
@@ -68,7 +72,8 @@ function DrinkCard({ item }) {
                         {item.description}
                     </CardText>
                     <br></br>
-                    <Button onClick={handleToggle}
+                    <Button 
+                    onClick={handleToggle}
                         borderRadius="8px"
                         py="3"
                         px="2"
@@ -76,7 +81,7 @@ function DrinkCard({ item }) {
                         lineHeight="1"
                         size="md">
                         Customize
-                    </Button>
+                    </Button>{'  '}
                     <Collapse mt={4} isOpen={show}>
                         <Form>
                             <FormGroup>
@@ -93,7 +98,9 @@ function DrinkCard({ item }) {
                                     <option>Almond Milk</option>
                                 </Input>
                             </FormGroup>
-                            <Button
+                            </Form>
+                    </Collapse>
+                            <Button id="PopoverFocus" type="button"
                                 borderRadius="8px"
                                 py="3"
                                 px="2"
@@ -103,8 +110,10 @@ function DrinkCard({ item }) {
                                 onClick={addToCart}>
                                 Add to Cart
                             </Button>
-                        </Form>
-                    </Collapse>
+                            <UncontrolledPopover trigger="focus" placement="bottom" target="PopoverFocus">
+                                <PopoverHeader>Item added to cart!</PopoverHeader>   
+                            </UncontrolledPopover>
+
                 </CardBody>
             </Card>
         </div>
