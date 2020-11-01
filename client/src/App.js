@@ -46,7 +46,7 @@ function App() {
                 <Route exact path="/menu" component={Menu} />
                 <Route exact path="/login" component={LoginStrap} />
                 <Route exact path="/signup" component={SignupStrap} />
-                <Route exact path="/order" component={MyOrder} />
+                <Route exact path="/cart" component={MyOrder} />
                 <Route exact path="/profile" component={History} />
               </Switch>
               <FooterStrap />

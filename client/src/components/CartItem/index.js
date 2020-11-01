@@ -7,7 +7,7 @@ import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { useStoreContext } from '../../utils/GlobalState';
 import { idbPromise } from "../../utils/helpers";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Input, Card, CardTitle, CardText, CardBody, CardImg } from 'reactstrap';
+import { Button, Input, Card, CardTitle, CardText, CardBody, CardImg, Row, Col } from 'reactstrap';
 
 const CartItem = ({ item }) => {
     const [state, dispatch] = useStoreContext();
@@ -38,12 +38,13 @@ const CartItem = ({ item }) => {
     };
 
     return (
-        <div p={5} shadow="lg" borderWidth="5px">
-            <Card>
+       
+        <Card p={5} shadow="lg" borderWidth="5px">
+           
             <CardImg src={item.image} mt="4" />
             <CardBody p="4">
-            <CardTitle fontSize="xl">{item.name}</CardTitle>
-            <CardText mt={4}>{item.price}</CardText>
+            <CardTitle >{item.name}</CardTitle>
+            <CardText mt={4}>$ {item.price}</CardText>
            
                 <CardText mt={4}>Quantity</CardText>
                 <Input
@@ -55,9 +56,10 @@ const CartItem = ({ item }) => {
                 <Button onClick={removeFromCart} width="full" size="xl" borderRadius="8px">Remove</Button>
            
             </CardBody>
-            </Card>
+            
 
-        </div>
+        </Card>
+       
 
     )
 }

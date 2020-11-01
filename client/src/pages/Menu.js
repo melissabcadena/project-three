@@ -33,7 +33,7 @@ console.log("state", state);
             })
         }
     }, [loading, data, dispatch]);
-    console.log(state.drinks);
+    // console.log(state.drinks);
 
     return (
         <ThemeProvider theme={theme}>
