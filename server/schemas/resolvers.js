@@ -25,7 +25,7 @@ const resolvers = {
     },
     // get one drink
     drink: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+      return await Drink.findById(_id).populate('category');
     },
     // get user for order history
     user: async (parent, args, context) => {
