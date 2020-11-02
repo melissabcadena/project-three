@@ -46,7 +46,7 @@ const MyOrder = () => {
           if (item.customize.size === "Large (+$1.00)" ) {
             sum += 1
           }
-          sum += item.price * item.purchaseQuantity;
+          sum += item.price;
         });
         return sum.toFixed(2);
       }

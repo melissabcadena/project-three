@@ -30,29 +30,17 @@ function DrinkCard({ item }) {
         // const customize = 
         // find the cart item w/ a matching id
         const itemInCart = cart.find((cartItem) => cartItem._id === _id);
-        // if there is a match, we will update quantity
-        if (itemInCart) {
-            dispatch({
-                type: UPDATE_CART_QUANTITY,
-                _id: _id,
-                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-            });
-            idbPromise('cart', 'put', {
-                ...itemInCart,
-                purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-            });
-        } else {
             item.customize = customize;
             console.log("_______")
             console.log(item);
             dispatch({
                 type: ADD_TO_CART,
-                item: { ...item, purchaseQuantity: 1 }
+                item: { ...item}
             });
-            idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+            idbPromise('cart', 'put', { ...item});
         }
         console.log(cart);
-    };
+
     return (
         <div flexWrap="wrap" alignItems="center" justifyContent="center" maxW="500px" m="10">
             <Card flexShrink="0" maxW="lg" bg="white.2" textAlign="center" flexBasis={['auto', '80%']}
@@ -87,11 +75,13 @@ function DrinkCard({ item }) {
                             <FormGroup>
                                 <Label for="exampleSelect">Select Size</Label>
                                 <Input type="select" name="size" id="exampleSelect" onChange={onChange}>
+                                    <option>Select</option>
                                     <option>Small</option>
                                     <option>Large (+$1.00)</option>
                                 </Input>
                                 <Label for="exampleSelect">Add Milk</Label>
                                 <Input type="select" name="milk" id="exampleSelect" onChange={onChange}>
+                                    <option>Select</option>
                                     <option>No Milk</option>
                                     <option>2% Milk</option>
                                     <option>Oat Milk</option>
@@ -99,6 +89,7 @@ function DrinkCard({ item }) {
                                 </Input>
                                 <Label for="exampleSelect">Add Flavor</Label>
                                 <Input type="select" name="flavor" id="exampleSelect" onChange={onChange}>
+                                    <option>Select</option>
                                     <option>None</option>
                                     <option>Pumpkin Spice</option>
                                     <option>Caramel</option>
@@ -106,7 +97,6 @@ function DrinkCard({ item }) {
                                 </Input>
                             </FormGroup>
                             </Form>
-                    </Collapse>
                             <Button id="PopoverFocus" type="button"
                                 borderRadius="8px"
                                 py="3"
@@ -117,6 +107,8 @@ function DrinkCard({ item }) {
                                 onClick={addToCart}>
                                 Add to Cart
                             </Button>
+                    </Collapse>
+                            
                             <UncontrolledPopover trigger="focus" placement="bottom" target="PopoverFocus">
                                 <PopoverHeader>Item added to cart!</PopoverHeader>   
                             </UncontrolledPopover>
