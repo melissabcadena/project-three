@@ -62,7 +62,7 @@ function DrinkCard({ item }) {
                     "25%", // 768px upwards
                     "15%", // 992px upwards
                 ]}>
-                <CardImg src={item.image} mt="10%" width={['auto', '80%']} />
+                <CardImg src={item.image} mt="10%" />
                 <CardBody p="4">
                     <CardTitle mt="1" fontWeight="semibold" as="h3" lineHeight="tight" >
                         {item.name} &nbsp;

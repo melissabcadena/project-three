@@ -15,6 +15,8 @@ import MyOrder from './pages/MyOrder';
 import History from './pages/History';
 import SignupStrap from './pages/Signup';
 import LoginStrap from './pages/Login';
+import NoMatch from "./pages/NoMatch";
+import Success from "./pages/Success";
 
 // import Nav from './components/Nav';
 import FooterStrap from './components/Footer'
@@ -48,6 +50,8 @@ function App() {
                 <Route exact path="/signup" component={SignupStrap} />
                 <Route exact path="/cart" component={MyOrder} />
                 <Route exact path="/profile" component={History} />
+                <Route exact path="/success" component={Success} />
+                <Route component={NoMatch} />
               </Switch>
               <FooterStrap />
             {/* </ThemeProvider> */}

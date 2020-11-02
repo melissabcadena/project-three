@@ -4,7 +4,9 @@ import { useQuery } from '@apollo/react-hooks';
 import { ThemeProvider, Flex, Box, Grid} from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
-import DrinkCard from '../components/DrinkCard';
+import CategoryMenu from "../components/CategoryMenu";
+import DrinkList from "../components/DrinkList";
+//import DrinkCard from '../components/DrinkCard';
 import { QUERY_ALL_DRINKS } from '../utils/queries';
 import { useStoreContext } from "../utils/GlobalState";
 import { UPDATE_DRINKS } from "../utils/actions";
@@ -38,15 +40,15 @@ console.log("state", state);
     return (
         <ThemeProvider theme={theme}>
             <Flex wrap="wrap" align='center' justify='center'>
-                <Box p={5}>
-                    <Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]} gap={6}>
+                <Box>
+                <CategoryMenu />
+                <DrinkList drinks={state.drinks}/>
+                    {/*<Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]} gap={6}>
                         {state.drinks.map(item => (
                             <DrinkCard item={item} key={item._id}/>
                         ))}
-                        {/* <DrinkCard/>
-                        <DrinkCard/>
-                        <DrinkCard/> */}
-                    </Grid>
+                       
+                    </Grid> */}
                 </Box>
             </Flex>
             
