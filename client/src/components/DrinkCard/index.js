@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup, Flex } from '@chakra-ui/core';
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { ADD_TO_CART} from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,11 +14,9 @@ function DrinkCard({ item }) {
     const [state, dispatch] = useStoreContext();
     const { cart } = state;
     const {
-        // image,
-        // name,
+
         _id,
-        // price,
-        // quantity
+
     } = item;
 
     const onChange = (e) => {

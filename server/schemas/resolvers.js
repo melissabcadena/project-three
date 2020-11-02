@@ -115,11 +115,6 @@ const resolvers = {
   
         throw new AuthenticationError('Not logged in');
       },
-      updateDrink: async (parent, { _id, quantity }) => {
-        const decrement = Math.abs(quantity) * -1;
-  
-        return await Drink.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
-      },
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
   

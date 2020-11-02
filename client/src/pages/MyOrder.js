@@ -55,9 +55,7 @@ const MyOrder = () => {
         const drinkIds = [];
     
         state.cart.forEach((item) => {
-          for (let i = 0; i < item.purchaseQuantity; i++) {
             drinkIds.push(item._id);
-          }
         });
     
         getCheckout({
