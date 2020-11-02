@@ -54,11 +54,7 @@ function DrinkList({drinks}) {
                         <DrinkCard
                         key= {drink._id}
                         item={drink}
-                        // _id={drink._id}
-                        // image={drink.image}
-                        // name={drink.name}
-                        // price={drink.price}
-                        // quantity={drink.quantity}
+
                         />
                     ))}
                 </Grid>

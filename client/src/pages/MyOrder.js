@@ -46,7 +46,7 @@ const MyOrder = () => {
           if (item.customize.size === "Large (+$1.00)" ) {
             sum += 1
           }
-          sum += item.price * item.purchaseQuantity;
+          sum += item.price;
         });
         return sum.toFixed(2);
       }
@@ -55,9 +55,7 @@ const MyOrder = () => {
         const drinkIds = [];
     
         state.cart.forEach((item) => {
-          for (let i = 0; i < item.purchaseQuantity; i++) {
             drinkIds.push(item._id);
-          }
         });
     
         getCheckout({
