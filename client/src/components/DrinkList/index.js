@@ -46,7 +46,7 @@ function DrinkList({drinks}) {
   return (
     <ThemeProvider theme={theme}>
          <Flex wrap='wrap' align='center' justify='center'>
-        <Box>
+        <Box p={5}>
             <h2>Our Drinks:</h2>
             {state.drinks.length ? (
                 <Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]} gap={3}>
