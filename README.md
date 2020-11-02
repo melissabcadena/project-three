@@ -53,6 +53,20 @@ Cloud platform that lets companies deploy web applications.
 
 ## Contribution
 
+## Screenshots
+
+Home Page
+![image](https://user-images.githubusercontent.com/65319429/97827461-ffa47f80-1c89-11eb-9ecd-733ef039cc49.png)
+
+Menu & Customizations
+![image](https://user-images.githubusercontent.com/65319429/97827621-717cc900-1c8a-11eb-8303-ee4826523404.png)
+
+Cart
+![image](https://user-images.githubusercontent.com/65319429/97827667-8b1e1080-1c8a-11eb-954f-3c827159eef0.png)
+
+Stripe
+![image](https://user-images.githubusercontent.com/65319429/97827772-d6d0ba00-1c8a-11eb-9103-192ae9b77ae0.png)
+
  * Create a points/rewards system for users.
  * Include more drink, food options, and combinations for users.
  * Include a create/ attend coffee event option for customers.
