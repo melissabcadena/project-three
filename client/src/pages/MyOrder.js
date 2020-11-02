@@ -42,9 +42,10 @@ const MyOrder = () => {
         let sum = 0;
         console.log(state.cart);
         state.cart.forEach(item => {
-          // if (item.customize.size === "large" ) {
-          //   sum += 1
-          // }
+          console.log(item);
+          if (item.customize.size === "Large (+$1.00)" ) {
+            sum += 1
+          }
           sum += item.price * item.purchaseQuantity;
         });
         return sum.toFixed(2);

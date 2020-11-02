@@ -41,7 +41,7 @@ function CategoryMenu() {
 
     return (
         <Box>
-
+            <h5>Categories</h5>
             {categories.map(item => (
 
                 <Button type="button"
@@ -49,6 +49,7 @@ function CategoryMenu() {
                     py="3"
                     px="2"
                     mt="2"
+                    mx='2'
                     lineHeight="1"
                     size="md"
                     key={item._id}
