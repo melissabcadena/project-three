@@ -7,8 +7,8 @@ const NoMatch = () => {
   return (
 
     <ThemeProvider theme={theme}>
-      <Flex width="full" textAlign="center" justifyContent="center" minHeight='100vh'>
-      <Box pl={3}>
+      <Flex width="full" textAlign="center" justifyContent="center" minHeight='100vh' wrap='wrap'>
+      <Box p={5}>
         <Heading as='h1'>Sorry, the page that you are looking for is not here</Heading>
         <Image src="./images/sad_puppy.jpg" alt="coffee banner" rounded="1rem" shadow="2xl" />
         <Heading as='h3'>
