@@ -8,7 +8,7 @@ A coffee shop platform where users can order menu items by adding items to their
 * [Installation](#installation)
 * [Usage](#usage)
 * [Technologies](#technologies)
-* [Contribution](#contribution)
+* [Future Development](#Future)
 * [Contributors](#contributors)
 * [Questions](#questions) 
    
@@ -51,7 +51,7 @@ a simple, modular and accessible component library that gives you all the buildi
 ### Heroku
 Cloud platform that lets companies deploy web applications.
 
-## Contribution
+## Future
 
  * Create a points/rewards system for users.
  * Include more drink, food options, and combinations for users.
