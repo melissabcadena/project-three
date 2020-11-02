@@ -45,6 +45,10 @@ const CartItem = ({ item }) => {
             <CardBody p="4">
             <CardTitle >{item.name}</CardTitle>
             <CardText mt={4}>$ {item.price}</CardText>
+            <CardText mt={4}>Size: {item.customize.size}</CardText>
+            <CardText mt={4}>Flavor: {item.customize.flavor}</CardText>
+            <CardText mt={4}>Milk: {item.customize.milk}</CardText>
+            
            
                 <CardText mt={4}>Quantity</CardText>
                 <Input
