@@ -7,14 +7,20 @@ const typeDefs = gql`
     name: String
   }
 
+  type Customize {
+    size: String
+    milk: String
+    flavor: String
+  }
+
   type Drink {
     _id: ID
     name: String
     description: String
     image: String
-    quantity: Int
     price: Float
     category: Category
+    customize: [Customize]
   }
 
   type Order {
@@ -54,8 +60,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     addOrder(drinks: [ID]!): Order
-    updateDrink(_id: ID!, quantity: Int!): Drink
-  }
+    }
 `;
 
 module.exports = typeDefs;

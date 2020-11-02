@@ -10,6 +10,10 @@ import { idbPromise } from "../utils/helpers";
 import { loadStripe } from "@stripe/stripe-js";
 import { QUERY_CHECKOUT } from "../utils/queries"
 import { useLazyQuery } from '@apollo/react-hooks';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Row, Col, Container } from 'reactstrap';
+
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const MyOrder = () => {
@@ -36,8 +40,13 @@ const MyOrder = () => {
     
     function calculateTotal() {
         let sum = 0;
+        console.log(state.cart);
         state.cart.forEach(item => {
-          sum += item.price * item.purchaseQuantity;
+          console.log(item);
+          if (item.customize.size === "Large (+$1.00)" ) {
+            sum += 1
+          }
+          sum += item.price;
         });
         return sum.toFixed(2);
       }
@@ -46,9 +55,7 @@ const MyOrder = () => {
         const drinkIds = [];
     
         state.cart.forEach((item) => {
-          for (let i = 0; i < item.purchaseQuantity; i++) {
             drinkIds.push(item._id);
-          }
         });
     
         getCheckout({
@@ -58,6 +65,9 @@ const MyOrder = () => {
 
       return (
         <ThemeProvider theme={theme}>
+          <Container fluid>
+          <Row>
+            <Col sm="6">
             <Box pl={5}>
                 <Heading as='h1'>Cart</Heading>
             </Box>
@@ -80,6 +90,9 @@ const MyOrder = () => {
                         }
                     </Box>
             </Flex>
+            </Col>
+            </Row>
+            </Container>
             </ThemeProvider>
         );
 };

@@ -55,7 +55,7 @@ const resolvers = {
           });
   
           const price = await stripe.prices.create({
-            drink: drink.id,
+            product: drink.id,
             unit_amount: drinks[i].price * 100,
             currency: 'usd',
           });
@@ -79,12 +79,13 @@ const resolvers = {
       // get user for order history
       user: async (parent, args, context) => {
         if(context.user) {
-          const user = await (await User.findById(context.user_id)).populated({
-            path: 'order.drinks',
+          const user =  await User.findById(context.user._id).populate({
+            path: 'orders.drinks',
             populate: 'category'
           });
           // what is this for? how to we show the info we want for order history page?
           user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+          return user;
         }
       }
     },
@@ -113,11 +114,6 @@ const resolvers = {
         }
   
         throw new AuthenticationError('Not logged in');
-      },
-      updateDrink: async (parent, { _id, quantity }) => {
-        const decrement = Math.abs(quantity) * -1;
-  
-        return await Drink.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
       },
       login: async (parent, { email, password }) => {
         const user = await User.findOne({ email });

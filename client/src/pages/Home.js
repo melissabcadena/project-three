@@ -2,6 +2,41 @@ import React from 'react';
 import { ThemeProvider, Flex, Box, Image, Stack, Heading, Button, Link} from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+// import {
+//     Jumbotron,
+//     Button,
+//     Container,
+//     Row,
+//     Col,
+//     Image
+// } from 'react-bootstrap';
+
+
+// function HomeStrap(props){
+
+//     return(
+//         <Container fluid>
+//             <Row className='flex-row'>
+//                 <Col fluid className='justify-content-md-center' md='auto'> 
+//                     <Jumbotron fluid className='align-items-center justify-content-md-center'>
+//                         <Image src="./images/cover.jpg" alt="coffee banner" fluid></Image>
+//                         <h1 className='text-center'>Sleepy? Tired? Bad day?</h1>
+//                         <h1 className='text-center'>{"Why not take a <br> for Java?"}</h1>
+//                         <h2 className='text-center'>Order from our delicious menu</h2>
+//                         <Button variant='secondary' href='/menu' block size='lg'>
+//                             Order Now
+//                         </Button>
+//                     </Jumbotron>
+//                 </Col>
+//             </Row>
+            
+//         </Container>
+        
+//     )
+// }
+
 const Home = () => {
     return (
         <ThemeProvider theme={theme}>

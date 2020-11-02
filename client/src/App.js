@@ -1,23 +1,27 @@
 import React from 'react';
 
 // UI
-import { ThemeProvider } from '@chakra-ui/core';
-import customTheme  from '../src/theme/theme';
+// import { ThemeProvider } from '@chakra-ui/core';
+// import customTheme  from '../src/theme/theme';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { StoreProvider } from './utils/GlobalState';
 
-import Home from './pages/Home';
+import HomeStrap from './pages/Home';
 import Menu from './pages/Menu';
 import MyOrder from './pages/MyOrder';
 import History from './pages/History';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+import SignupStrap from './pages/Signup';
+import LoginStrap from './pages/Login';
+import NoMatch from "./pages/NoMatch";
+import Success from "./pages/Success";
 
-import Nav from './components/Nav';
-import Footer from './components/Footer'
+// import Nav from './components/Nav';
+import FooterStrap from './components/Footer'
+
+import NavStrap from './components/Nav';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -28,7 +32,7 @@ const client = new ApolloClient({
       }
     })
   },
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 })
 
 function App() {
@@ -37,18 +41,20 @@ function App() {
       <Router>
         <div>
           <StoreProvider>
-            <ThemeProvider theme={customTheme}>
-              <Nav />
+            {/* <ThemeProvider theme={customTheme}> */}
+              <NavStrap />
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={HomeStrap} />
                 <Route exact path="/menu" component={Menu} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/signup" component={Signup} />
-                <Route exact path="/order" component={MyOrder} />
+                <Route exact path="/login" component={LoginStrap} />
+                <Route exact path="/signup" component={SignupStrap} />
+                <Route exact path="/cart" component={MyOrder} />
                 <Route exact path="/profile" component={History} />
+                <Route exact path="/success" component={Success} />
+                <Route component={NoMatch} />
               </Switch>
-              <Footer />
-            </ThemeProvider>
+              <FooterStrap />
+            {/* </ThemeProvider> */}
           </StoreProvider>
         </div>
       </Router>

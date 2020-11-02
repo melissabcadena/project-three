@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
-import { ThemeProvider, Box, Grid} from '@chakra-ui/core';
+import { ThemeProvider, Flex, Box, Grid} from '@chakra-ui/core';
 import theme  from '../theme/theme';
 
-import DrinkCard from '../components/DrinkCard';
+import CategoryMenu from "../components/CategoryMenu";
+import DrinkList from "../components/DrinkList";
+//import DrinkCard from '../components/DrinkCard';
 import { QUERY_ALL_DRINKS } from '../utils/queries';
 import { useStoreContext } from "../utils/GlobalState";
 import { UPDATE_DRINKS } from "../utils/actions";
@@ -33,20 +35,25 @@ console.log("state", state);
             })
         }
     }, [loading, data, dispatch]);
-    console.log(state.drinks);
+    // console.log(state.drinks);
 
     return (
         <ThemeProvider theme={theme}>
-            <Box>
-                <Grid templateColumns="repeat(3, 1fr)" gap={6}>
-                    {state.drinks.map(item => (
-                        <DrinkCard item={item} key={item._id}/>
-                    ))}
-                    {/* <DrinkCard/>
-                    <DrinkCard/>
-                    <DrinkCard/> */}
-                </Grid>
-            </Box>
+            <Flex wrap="wrap" alignItems='center' justifyContent='center'>
+                <Box>
+                <Box p={5} alignItems='center' justifyContent='center'>
+                    <CategoryMenu />
+                </Box>
+                <DrinkList drinks={state.drinks}/>
+                    {/*<Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]} gap={6}>
+                        {state.drinks.map(item => (
+                            <DrinkCard item={item} key={item._id}/>
+                        ))}
+                       
+                    </Grid> */}
+                </Box>
+            </Flex>
+            
             
 
         </ThemeProvider>
