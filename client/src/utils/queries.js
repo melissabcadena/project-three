@@ -22,6 +22,11 @@ export const QUERY_DRINKS = gql`
             category {
               _id
             }
+            customize {
+              size
+              milk
+              flavor
+            }
         }
     }
 `;

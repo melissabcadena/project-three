@@ -5,21 +5,14 @@ import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, FormGroup, Label, Input, Collapse, Card, CardTitle, CardText, CardBody, CardImg, UncontrolledPopover, PopoverHeader } from 'reactstrap';
-
-
 function DrinkCard({ item }) {
-
     const [show, setShow] = React.useState(false);
-
+    const [customize, setCustomize] = React.useState({milk:"", flavor:"", size:""})
     const handleToggle = () => setShow(!show);
     // const [popoverOpen, setPopoverOpen] = useState(false);
-
     // const toggle = () => setPopoverOpen(!popoverOpen);
-
     const [state, dispatch] = useStoreContext();
-
     const { cart } = state;
-
     const {
         // image,
         // name,
@@ -28,7 +21,13 @@ function DrinkCard({ item }) {
         // quantity
     } = item;
 
+    const onChange = (e) => {
+        const {name, value} = e.target
+        setCustomize({...customize, [name]: value })
+    }
+
     const addToCart = () => {
+        // const customize = 
         // find the cart item w/ a matching id
         const itemInCart = cart.find((cartItem) => cartItem._id === _id);
         // if there is a match, we will update quantity
@@ -43,6 +42,9 @@ function DrinkCard({ item }) {
                 purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
             });
         } else {
+            item.customize = customize;
+            console.log("_______")
+            console.log(item);
             dispatch({
                 type: ADD_TO_CART,
                 item: { ...item, purchaseQuantity: 1 }
@@ -51,11 +53,9 @@ function DrinkCard({ item }) {
         }
         console.log(cart);
     };
-
     return (
         <div flexWrap="wrap" alignItems="center" justifyContent="center" maxW="500px" m="10">
             <Card flexShrink="0" maxW="lg" bg="white.2" textAlign="center" flexBasis={['auto', '80%']}
-
                 width={[
                     "100%", // base
                     "50%", // 480px upwards
@@ -86,16 +86,23 @@ function DrinkCard({ item }) {
                         <Form>
                             <FormGroup>
                                 <Label for="exampleSelect">Select Size</Label>
-                                <Input type="select" name="select" id="exampleSelect">
+                                <Input type="select" name="size" id="exampleSelect" onChange={onChange}>
                                     <option>Small</option>
                                     <option>Large</option>
                                 </Input>
                                 <Label for="exampleSelect">Add Milk</Label>
-                                <Input type="select" name="select" id="exampleSelect">
+                                <Input type="select" name="milk" id="exampleSelect" onChange={onChange}>
                                     <option>No Milk</option>
                                     <option>2% Milk</option>
                                     <option>Oat Milk</option>
                                     <option>Almond Milk</option>
+                                </Input>
+                                <Label for="exampleSelect">Add Flavor</Label>
+                                <Input type="select" name="flavor" id="exampleSelect" onChange={onChange}>
+                                    <option>None</option>
+                                    <option>Pumpkin Spice</option>
+                                    <option>Caramel</option>
+                                    <option>Vanilla</option>
                                 </Input>
                             </FormGroup>
                             </Form>
@@ -113,12 +120,9 @@ function DrinkCard({ item }) {
                             <UncontrolledPopover trigger="focus" placement="bottom" target="PopoverFocus">
                                 <PopoverHeader>Item added to cart!</PopoverHeader>   
                             </UncontrolledPopover>
-
                 </CardBody>
             </Card>
         </div>
     );
 }
-
-
 export default DrinkCard;

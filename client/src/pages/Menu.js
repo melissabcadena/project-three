@@ -39,7 +39,7 @@ console.log("state", state);
 
     return (
         <ThemeProvider theme={theme}>
-            <Flex wrap="wrap" align='center' justify='center'>
+            <Flex wrap="wrap" alignItems='center' justifyContent='center'>
                 <Box>
                 <CategoryMenu />
                 <DrinkList drinks={state.drinks}/>
