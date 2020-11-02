@@ -57,6 +57,7 @@ const CartItem = ({ item }) => {
                     value={item.purchaseQuantity}
                     onChange={onChange}
                 />
+                <br></br>
                 <Button onClick={removeFromCart} width="full" size="xl" borderRadius="8px">Remove</Button>
            
             </CardBody>

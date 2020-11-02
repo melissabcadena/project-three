@@ -87,11 +87,13 @@ function DrinkCard({ item }) {
                             <FormGroup>
                                 <Label for="exampleSelect">Select Size</Label>
                                 <Input type="select" name="size" id="exampleSelect" onChange={onChange}>
+                                    <option>Select Option</option>
                                     <option>Small</option>
                                     <option>Large (+$1.00)</option>
                                 </Input>
                                 <Label for="exampleSelect">Add Milk</Label>
                                 <Input type="select" name="milk" id="exampleSelect" onChange={onChange}>
+                                <option>Select Option</option>
                                     <option>No Milk</option>
                                     <option>2% Milk</option>
                                     <option>Oat Milk</option>
@@ -99,6 +101,7 @@ function DrinkCard({ item }) {
                                 </Input>
                                 <Label for="exampleSelect">Add Flavor</Label>
                                 <Input type="select" name="flavor" id="exampleSelect" onChange={onChange}>
+                                <option>Select Option</option>
                                     <option>None</option>
                                     <option>Pumpkin Spice</option>
                                     <option>Caramel</option>
