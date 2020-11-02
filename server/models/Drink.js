@@ -23,6 +23,11 @@ const drinkSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
+  },
+  customize: {
+    type: Schema.Types.ObjectId,
+    ref: 'Customize',
+    required: true
   }
 });
 

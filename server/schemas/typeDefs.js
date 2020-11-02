@@ -7,6 +7,12 @@ const typeDefs = gql`
     name: String
   }
 
+  type Customize {
+    size: String
+    milk: String
+    flavor: String
+  }
+
   type Drink {
     _id: ID
     name: String
@@ -15,6 +21,7 @@ const typeDefs = gql`
     quantity: Int
     price: Float
     category: Category
+    customize: [Customize]
   }
 
   type Order {
