@@ -27,7 +27,6 @@ const drinkSchema = new Schema({
   customize: {
     type: Schema.Types.ObjectId,
     ref: 'Customize',
-    required: true
   }
 });
 
