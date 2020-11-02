@@ -51,7 +51,7 @@ a simple, modular and accessible component library that gives you all the buildi
 ### Heroku
 Cloud platform that lets companies deploy web applications.
 
-## Future
+## Future Development
 
  * Create a points/rewards system for users.
  * Include more drink, food options, and combinations for users.
