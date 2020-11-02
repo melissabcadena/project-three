@@ -22,7 +22,11 @@ const MyOrder = () => {
     }, [state.cart.length, dispatch]);
     function calculateTotal() {
         let sum = 0;
+        console.log(state.cart);
         state.cart.forEach(item => {
+          // if (item.customize.size === "large" ) {
+          //   sum += 1
+          // }
           sum += item.price * item.purchaseQuantity;
         });
         return sum.toFixed(2);
