@@ -33,7 +33,7 @@ function Success() {
 
         <ThemeProvider theme={theme}>
              <Flex width="full" textAlign="center" justifyContent="center" minHeight='100vh'>
-            <Box pl={3}>
+            <Box p={3}>
                 <Heading as='h1'>Your order has been submitted!</Heading>
                 <Heading as='h2'>Thank you</Heading>
             </Box>
