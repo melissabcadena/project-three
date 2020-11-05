@@ -47,14 +47,13 @@ function DrinkList({drinks}) {
     <ThemeProvider theme={theme}>
          <Flex wrap='wrap' align='center' justify='center'>
         <Box p={5}>
-            <h2>Our Drinks:</h2>
+            <h2>Pick your drink</h2>
             {state.drinks.length ? (
                 <Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]} gap={3}>
                     {filterDrinks().map(drink => (
                         <DrinkCard
                         key= {drink._id}
                         item={drink}
-
                         />
                     ))}
                 </Grid>

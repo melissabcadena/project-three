@@ -57,15 +57,14 @@ function DrinkCard({ item }) {
                     <CardText as="span" fontSize="sm">
                         {item.description}
                     </CardText>
-                    <br></br>
-                    <Button 
+
+                    <Button id="PopoverFocus" type="button" className="m-2" 
+                        onClick={addToCart}>
+                        Add to Cart
+                    </Button>
+                    <Button className="m-2"
                     onClick={handleToggle}
-                        borderRadius="8px"
-                        py="3"
-                        px="2"
-                        mt="4"
-                        lineHeight="1"
-                        size="md">
+                        >
                         Customize
                     </Button>{'  '}
                     <Collapse mt={4} isOpen={show}>
@@ -95,21 +94,12 @@ function DrinkCard({ item }) {
                                 </Input>
                             </FormGroup>
                             </Form>
-                            <Button id="PopoverFocus" type="button"
-                                borderRadius="8px"
-                                py="3"
-                                px="2"
-                                mt="2"
-                                lineHeight="1"
-                                size="md"
-                                onClick={addToCart}>
-                                Add to Cart
-                            </Button>
-                    </Collapse>
                             
-                            <UncontrolledPopover trigger="focus" placement="bottom" target="PopoverFocus">
-                                <PopoverHeader>Item added to cart!</PopoverHeader>   
-                            </UncontrolledPopover>
+                    </Collapse>
+                    <UncontrolledPopover trigger="focus" placement="bottom" target="PopoverFocus">
+                        <PopoverHeader>Item added to cart!</PopoverHeader>   
+                    </UncontrolledPopover>
+                   
                 </CardBody>
             </Card>
         </div>
