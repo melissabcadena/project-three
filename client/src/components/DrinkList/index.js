@@ -45,7 +45,7 @@ function DrinkList({drinks}) {
 
   return (
     <ThemeProvider theme={theme}>
-         <Flex wrap='wrap' align='center' justify='center'>
+         <Flex >
         <Box p={5}>
             <h2>Pick your drink</h2>
             {state.drinks.length ? (
