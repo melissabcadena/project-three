@@ -35,27 +35,18 @@ console.log("state", state);
             })
         }
     }, [loading, data, dispatch]);
-    // console.log(state.drinks);
 
     return (
         <ThemeProvider theme={theme}>
             <Flex wrap="wrap" alignItems='center' justifyContent='center'>
                 <Box>
-                <Box p={5} alignItems='center' justifyContent='center'>
-                    <CategoryMenu />
-                </Box>
-                <DrinkList drinks={state.drinks}/>
-                    {/*<Grid templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]} gap={6}>
-                        {state.drinks.map(item => (
-                            <DrinkCard item={item} key={item._id}/>
-                        ))}
-                       
-                    </Grid> */}
+                    <Box p={5} alignItems='center' justifyContent='center'>
+                        <CategoryMenu />
+                    </Box>
+                    <DrinkList drinks={state.drinks}/>
                 </Box>
             </Flex>
             
-            
-
         </ThemeProvider>
     );
 };
