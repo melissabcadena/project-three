@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Box, Image, Button, Collapse, FormControl, FormLabel, Radio, RadioGroup, Flex } from '@chakra-ui/core';
 import { ADD_TO_CART} from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState.js";
@@ -9,8 +8,6 @@ function DrinkCard({ item }) {
     const [show, setShow] = React.useState(false);
     const [customize, setCustomize] = React.useState({milk:"", flavor:"", size:""})
     const handleToggle = () => setShow(!show);
-    // const [popoverOpen, setPopoverOpen] = useState(false);
-    // const toggle = () => setPopoverOpen(!popoverOpen);
     const [state, dispatch] = useStoreContext();
     const { cart } = state;
     const {
