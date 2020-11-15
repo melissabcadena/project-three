@@ -4,7 +4,8 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
-import { Box, Heading, Button } from '@chakra-ui/core';
+import { Button, Container, Row, Col } from 'react-bootstrap';
+
 
 function CategoryMenu() {
     const [state, dispatch] = useStoreContext();
@@ -40,18 +41,15 @@ function CategoryMenu() {
     };
 
     return (
-        <Box>
-            <h5>Categories</h5>
+        <Container>
+                <Row className='text-center'>
+                    <Col>
             {categories.map(item => (
-
                 <Button type="button"
-                    borderRadius="8px"
-                    py="3"
-                    px="2"
-                    mt="2"
-                    mx='2'
+                    variant="secondary"
                     lineHeight="1"
-                    size="md"
+                    size="lg"
+                    className="m-2" 
                     key={item._id}
                     onClick={() => {
                         handleClick(item._id);
@@ -59,8 +57,11 @@ function CategoryMenu() {
                 >
                     {item.name}
                 </Button>
+                
             ))}
-        </Box>
+            </Col>
+        </Row>
+        </Container>
     );
 }
 
